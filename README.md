@@ -2,6 +2,20 @@
 
 ---
 
+## Objetivo 
+
+To present strategies for analysis, design, and programming of data structure allowing students to organize, manipulate, search and insert data efficiently in an application.
+
+#### Subject Learning Results (RAC)
+
+At the end of the course the student will be able to:
+
+**RAC1**: Define the basic concepts of data structure.
+**RAC2**: Apply the suitable data structure to solve a given problem.
+
+## Lessons
+
+[1. Introduction to Java](./Lessons/1.%20IntroductionToJava.ipynb)
 
 ## Grades
 
@@ -36,24 +50,7 @@ Each problem solved, that pass all the test created for the page, can be change 
 
 ## Assigments
 
-All assignments will be stored on [GitHub](https://github.com/) but will be uploaded for grading on [Campus Virtual](https://campusvirtualpes.etitc.edu.co/Edusuperior/). To learn more about GitHub commands and concepts here are some tutorials:
-
-- [git - la guía sencilla](http://rogerdudler.github.io/git-guide/index.es.html)
-- [Github - Hello World](https://docs.github.com/en/get-started/start-your-journey/hello-world)
-- [Github - Getting started with Git](https://docs.github.com/en/get-started/getting-started-with-git)
-- [Youtube - Github Tutorial For Beginners - Github Basics for Mac or Windows & Source Control Basics](https://www.youtube.com/watch?v=0fKg7e37bQE)
-- [Youtube - Git and GitHub for Beginners - Crash Course](https://www.youtube.com/watch?v=RGOj5yH7evk&t=425s)
-- [Youtube - Git & GitHub Crash Course For Beginners ](https://www.youtube.com/watch?v=SWYqp7iY_Tc)
-
-Github uses markdown as the main language to display information in the repositories. Here are some tutorial to get familiar with it:
-
-- [Markdown Tutorial](https://www.markdowntutorial.com/)
-- [Markdown Guide](https://www.markdownguide.org/)
-- [Markdown Guide - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-- [Github - Sintaxis de escritura y formato básicos](https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-- [Github - Inicio rápido para escribir en GitHub](https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)
-- [CommonMark](https://commonmark.org/)
-
+All assignments will be stored on [GitHub](https://github.com/) but will be uploaded for grading on [Campus Virtual](https://campusvirtualpes.etitc.edu.co/Edusuperior/).
 
 ## References:
 
