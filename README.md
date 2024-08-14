@@ -15,7 +15,7 @@ At the end of the course the student will be able to:
 
 ## Lessons
 
-[1. Introduction to Java](./Lessons/1.%20IntroductionToJava.ipynb)
+[1. Introduction to Java](./Lessons/1.%20IntroductionToJava.md)
 
 ## Grades
 
