@@ -17,6 +17,7 @@ At the end of the course the student will be able to:
 ## Lessons
 
 [1. Introduction to Java](./Lessons/1.%20IntroductionToJava.md)
+
 [2. Fundamentals of Oriented Object Programming (OOP)](./Lessons/2.%20OOP_Fundamentals.ipynb)
 
 ## Grades
