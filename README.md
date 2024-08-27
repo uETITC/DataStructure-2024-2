@@ -20,6 +20,8 @@ At the end of the course the student will be able to:
 
 [2. Fundamentals of Oriented Object Programming (OOP)](./Lessons/2.%20OOP_Fundamentals.ipynb)
 
+[3. Strings and Arrays](./Lessons/3.%20StringAndArrays.ipynb)
+
 ## Grades
 
 <center>
