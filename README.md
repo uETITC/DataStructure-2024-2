@@ -22,6 +22,8 @@ At the end of the course the student will be able to:
 
 [3. Strings and Arrays](./Lessons/3.%20StringsAndArrays.ipynb)
 
+[4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
+
 ## Grades
 
 <center>
@@ -44,14 +46,14 @@ At the end of the course the student will be able to:
 
 For all periods the grade is divided into: Co-evaluation (10 %), self-evaluation (10 %), and teacher evaluation (80 %) which is divided into exams (40 %) and assignments (40 %). The first and second periods are 35 % of the final grade, while for the last period it is 30 %. In the first and second periods the exam consists of two tests: one practical (60 %) and the other theoretical (40 %). 
 
-
-**Note:** You can practice and complement the course by solving programming problems in any of the following pages:
-
-- [Codeabbey](https://www.codeabbey.com/)
-- [Hackerrank](https://www.hackerrank.com/)
-- [LeetCode](https://leetcode.com/)
-
-Each problem solved, that pass all the test created for the page, can be change by points. Very simple problems are not valid.
+>[!NOTE]
+>You can practice and complement the course by solving programming problems in any of the following pages:
+>
+>- [Codeabbey](https://www.codeabbey.com/)
+>- [Hackerrank](https://www.hackerrank.com/)
+>- [LeetCode](https://leetcode.com/)
+>
+>Each problem solved, that pass all the test created for the page, can be change by points. Very simple problems are not valid.
 
 ## Assigments
 
