@@ -2,6 +2,18 @@
 
 ---
 
+
+## Lessons
+
+[1. Introduction to Java](./Lessons/1.%20IntroductionToJava.md)
+
+[2. Fundamentals of Oriented Object Programming (OOP)](./Lessons/2.%20OOP_Fundamentals.ipynb)
+
+[3. Strings and Arrays](./Lessons/3.%20StringsAndArrays.ipynb)
+
+[4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
+
+
 ## Objective
 
 To present strategies for analysis, design, and programming of data structure allowing students to organize, manipulate, search and insert data efficiently in an application.
@@ -13,16 +25,6 @@ At the end of the course the student will be able to:
 **RAC1**: Define the basic concepts of data structure.
 
 **RAC2**: Apply the suitable data structure to solve a given problem.
-
-## Lessons
-
-[1. Introduction to Java](./Lessons/1.%20IntroductionToJava.md)
-
-[2. Fundamentals of Oriented Object Programming (OOP)](./Lessons/2.%20OOP_Fundamentals.ipynb)
-
-[3. Strings and Arrays](./Lessons/3.%20StringsAndArrays.ipynb)
-
-[4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
 
 ## Grades
 
