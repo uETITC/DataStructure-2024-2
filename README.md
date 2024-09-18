@@ -13,7 +13,7 @@
 
 [4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
 
-[5. References, Nodes and LinkedLists](./Lessons/5.%20ReferencesAndNodes.ipynb)
+[5. References, Nodes, and LinkedLists](./Lessons/5.%20ReferencesAndNodes.ipynb)
 
 ## Exams
 
