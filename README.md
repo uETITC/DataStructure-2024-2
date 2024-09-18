@@ -13,12 +13,18 @@
 
 [4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
 
+[5, References and Nodes](./Lessons/5.%20ReferencesAndNodes.ipynb)
+
+## Exams
+
+First Exam: [v1](./Lessons/Exams/First/Parcial1v1.ipynb) and [v2](./Lessons/Exams/First/Parcial1v2.ipynb)
+
 
 ## Objective
 
 To present strategies for analysis, design, and programming of data structure allowing students to organize, manipulate, search and insert data efficiently in an application.
 
-#### Subject Learning Results (RAC)
+## Subject Learning Results (RAC)
 
 At the end of the course the student will be able to:
 
