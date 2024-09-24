@@ -13,7 +13,9 @@
 
 [4. Multidimensional Arrays](./Lessons/4.%20MultidimensionalArrays.ipynb)
 
-[5. References, Nodes, and LinkedLists](./Lessons/5.%20ReferencesAndNodes.ipynb)
+[5. References, Nodes, and LinkedLists](./Lessons/5.%20ReferencesNodesAndLinkedLists.ipynb)
+
+[6. Generics, Interfaces, and Iterators](./Lessons/6.%20GenericsIterfacesAndIterators.ipynb)
 
 ## Exams
 
