@@ -2,7 +2,6 @@
 
 ---
 
-
 ## Lessons
 
 [1. Introduction to Java](./Lessons/1.%20IntroductionToJava.md)
@@ -17,10 +16,11 @@
 
 [6. Generics, Interfaces, and Iterators](./Lessons/6.%20GenericsIterfacesAndIterators.ipynb)
 
+[7. Stacks](./Lessons/7.%20Stacks.ipynb)
+
 ## Exams
 
 First Exam: [v1](./Lessons/Exams/First/Parcial1v1.ipynb) and [v2](./Lessons/Exams/First/Parcial1v2.ipynb)
-
 
 ## Objective
 
