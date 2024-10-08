@@ -18,6 +18,8 @@
 
 [7. Stacks](./Lessons/7.%20Stacks.ipynb)
 
+[8. Queues](./Lessons/8.%20Queues.ipynb)
+
 ## Exams
 
 First Exam: [v1](./Lessons/Exams/First/Parcial1v1.ipynb) and [v2](./Lessons/Exams/First/Parcial1v2.ipynb)
