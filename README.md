@@ -20,6 +20,7 @@
 
 [8. Queues](./Lessons/8.%20Queues.ipynb)
 
+[9. Buses and Processors](./Lessons/9.%20BusesAndProcessors.md)
 ## Exams
 
 First Exam: [v1](./Lessons/Exams/First/Parcial1v1.ipynb) and [v2](./Lessons/Exams/First/Parcial1v2.ipynb)
