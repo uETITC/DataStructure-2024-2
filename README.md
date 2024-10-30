@@ -21,6 +21,9 @@
 [8. Queues](./Lessons/8.%20Queues.ipynb)
 
 [9. Buses and Processors](./Lessons/9.%20BusesAndProcessors.md)
+
+[10. Trees](./Lessons/10.%20Trees.ipynb)
+
 ## Exams
 
 - First: [v1](./Lessons/Exams/PrimerV1.ipynb) - [v2](./Lessons/Exams/PrimerV2.ipynb)
