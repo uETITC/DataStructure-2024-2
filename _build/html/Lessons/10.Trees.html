@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Árboles &#8212; Data Structure</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lessons/10.Trees';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Grafos" href="11.0.Graphs.html" />
+    <link rel="prev" title="Buses de Comunicaciones y Nuevos Procesadores" href="9.BusesAndProcessors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logoED.png" class="logo__image only-light" alt="Data Structure - Home"/>
+    <script>document.write(`<img src="../_static/logoED.png" class="logo__image only-dark" alt="Data Structure - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Data Structure
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1.IntroductionToJava.html">Configuración de Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.IntroductionToJava_Solution.html">Primer Taller Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.OOP_Fundamentals.html">Introducción a Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.OOP_Fundamentals_Solution.html">Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/First/First.html">First Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V2.html">V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/Supletorio.html">Supletorio</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Data Structures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3.Strings.html">Cadenas (Strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Arrays.html">Arreglos (Arrays)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.MultidimensionalArrays.html">Arreglos de Varias Dimensiones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.ReferencesNodesAndLinkedLists.html">Referencias, Nodos, y Listas Enlazadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.GenericsIterfacesAndIterators.html">Genéricos, Interfaces e Iteradores en Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.Stacks.html">Pilas (Stacks)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.Queues.html">Colas (Queues)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/Second/Second.html">Second Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V2.html">V2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Buses and Processors</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="9.BusesAndProcessors.html">Buses de Comunicaciones y Nuevos Procesadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Non-Linear Data Structures</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Árboles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="11.0.Graphs.html">Grafos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="11.1.UnweightedGraphs.html">Grafos Sin Peso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11.2.WeightedGraphs.html">Grafos Con Peso</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/uETITC/DataStructure-2024-2/blob/main/Lessons/10.Trees.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2/issues/new?title=Issue%20on%20page%20%2FLessons/10.Trees.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lessons/10.Trees.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Árboles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos">Objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-formal">Definición Formal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos">Conceptos Básicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-y-caracteristicas">Descripción y Características</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica">Representación Gráfica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-arboles">Tipos de Árboles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recorridos">Recorridos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-first-search-dfs">Depth-First Search  (DFS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preorder">Preorder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#postorder">Postorder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#en-orden-inorder">En Orden (InOrder)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breadth-first-search-bfs">Breadth-First Search (BFS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tour-de-euler">Tour de Euler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-arboles-en-java">Implementación de Árboles en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple">Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-binario-de-busqueda-bst">Árbol Binario de Búsqueda (BST)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-medio">Nivel Medio</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Árboles</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-arboles-binarios">Aplicaciones de Árboles Binarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robusta-y-completa">Robusta y Completa</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intreface-y-clase-arbol">Intreface y Clase Árbol</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividades-practicas">Actividades Prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libros">Libros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios">Repositorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guias-y-tutoriales">Guías y Tutoriales</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="arboles">
+<h1>Árboles<a class="headerlink" href="#arboles" title="Link to this heading">#</a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>Los <strong>árboles</strong> son estructuras de datos fundamentales en informática, utilizadas para organizar y gestionar información de una manera eficiente y jerárquica. Debido a su capacidad para almacenar datos de forma ordenada, son comunes en aplicaciones como sistemas de archivos, bases de datos, y algoritmos de inteligencia artificial. En esta clase exploraremos sus conceptos básicos, características, tipos, y una implementación práctica en Java.</p>
+<p>Los árboles son considerados una estructura de datos no lineales. Estas estructuras suponen un gran avance en la organización de datos, ya que nos permiten implementar un gran número de algoritmos mucho más rápido que cuando utilizamos estructuras de datos lineales, como arrays o listas enlazadas. Los árboles también ofrecen una organización natural de los datos, por lo que se han convertido en estructuras omnipresentes en sistemas de archivos, interfaces gráficas de usuario, bases de datos, sitios web y muchos otros sistemas informáticos.</p>
+<p float="left" style="text-align:center">
+    <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*jHLRu-DNn1455xbshQzpMQ.png" width="80%"/>
+</p>
+<p>Cuando se dice que los árboles son «no lineales», se refiere a una relación organizativa más rica que las simples relaciones «antes» y «después» entre objetos en secuencias. Las relaciones en un árbol son jerárquicas: algunos objetos están «por encima» y otros «por debajo» de otros. En realidad, la terminología principal de las estructuras de datos en árbol procede de los árboles genealógicos, siendo los términos <strong>padre</strong>, <strong>hijo</strong>, <strong>antepasado</strong> y <strong>descendiente</strong> los más utilizados para describir las relaciones. Uno de los ejemplos más claros es la estructura de archivos de linux (comando tree hace algo similar).</p>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Entender los conceptos básicos de los árboles y su estructura jerárquica.</p></li>
+<li><p>Aprender las características y tipos de árboles utilizados en programación.</p></li>
+<li><p>Conocer aplicaciones prácticas de los árboles en informática.</p></li>
+<li><p>Implementar árboles en Java con ejemplos detallados.</p></li>
+</ul>
+</section>
+<section id="definicion-formal">
+<h2>Definición Formal<a class="headerlink" href="#definicion-formal" title="Link to this heading">#</a></h2>
+<p>Formalmente, definimos un árbol T como un conjunto de nodos que almacenan elementos tales que los nodos tienen una relación padre-hijo que satisface las siguientes propiedades:</p>
+<ul class="simple">
+<li><p>Si T no es vacío, tiene un nodo especial, llamado raíz de T , que no tiene padre.</p></li>
+<li><p>Cada nodo v de T distinto de la raíz tiene un único nodo padre w; cada nodo con padre w es hijo de w.</p></li>
+</ul>
+<p>Obsérvese que, según nuestra definición, un árbol puede estar vacío, es decir, no tener ningún nodo. Esta convención también nos permite definir un árbol de forma recursiva, de modo que un árbol T está vacío o consta de un nodo r, denominado raíz de T, y un conjunto (posiblemente vacío) de subárboles cuyas raíces son los hijos de r.</p>
+</section>
+<section id="conceptos-basicos">
+<h2>Conceptos Básicos<a class="headerlink" href="#conceptos-basicos" title="Link to this heading">#</a></h2>
+<p>Un <strong>árbol</strong> es una estructura de datos no lineal que organiza los datos de manera jerárquica. Un árbol está compuesto por <strong>nodos</strong> conectados entre sí, donde cada nodo puede tener <strong>hijos</strong> y un único <strong>padre</strong>, salvo el <strong>nodo raíz</strong>, que es el nodo inicial sin padre.</p>
+<p>Cada nodo de un árbol contiene tres elementos fundamentales:</p>
+<ol class="arabic simple">
+<li><p><strong>Dato</strong>: el valor o información que almacena el nodo.</p></li>
+<li><p><strong>Nodo Padre</strong>: el nodo que está un nivel arriba en la jerarquía (excepto el nodo raíz).</p></li>
+<li><p><strong>Nodos Hijos</strong>: los nodos que dependen de él en la jerarquía.</p></li>
+<li><p><strong>Jerarquía</strong>: La organización de los datos es jerárquica, similar a una estructura de organización en una empresa.</p></li>
+<li><p><strong>Conexiones Únicas</strong>: Cada nodo, excepto el raíz, tiene un solo padre.</p></li>
+<li><p><strong>Subárboles</strong>: Cualquier nodo puede servir como raíz de su propio subárbol.</p></li>
+<li><p><strong>Recorridos Múltiples</strong>: Los árboles pueden recorrerse en diferentes órdenes (preorden, inorden y postorden).</p></li>
+</ol>
+<p>Otros términos que se suelen utilizar son:</p>
+<ul class="simple">
+<li><p>Un nodo u es <strong>antepasado</strong> de un nodo v si u = v o u es antepasado del padre de v.</p></li>
+<li><p>Un nodo v es <strong>descendiente</strong> de un nodo u si u es antepasado de v.</p></li>
+<li><p>El <strong>subárbol</strong> de T <strong>enraizado</strong> en un nodo v es el árbol formado por todos los descendientes de v en T (incluido el propio v).</p></li>
+<li><p>Una <strong>arista</strong> del árbol T es un par de nodos (u, v) tal que u es el padre de v, o viceversa.</p></li>
+<li><p>Un <strong>camino</strong> de T es una secuencia de nodos tal que dos nodos consecutivos cualesquiera de la secuencia forman una arista.</p></li>
+</ul>
+</section>
+<section id="descripcion-y-caracteristicas">
+<h2>Descripción y Características<a class="headerlink" href="#descripcion-y-caracteristicas" title="Link to this heading">#</a></h2>
+<p>Un árbol es una estructura de datos jerárquica con las siguientes propiedades:</p>
+<ul class="simple">
+<li><p><strong>Raíz</strong>: el nodo principal o raíz del árbol es el punto de inicio de la estructura, y no tiene padres.</p></li>
+<li><p><strong>Nodos Internos</strong>: nodos que tienen al menos un hijo.</p></li>
+<li><p><strong>Padre</strong>: Nodo que tiene conexiones hacia uno o más nodos hijos.</p></li>
+<li><p><strong>Hijo</strong>: Nodo que tiene un nodo padre.</p></li>
+<li><p><strong>Hoja</strong>: Nodo sin hijos.</p></li>
+<li><p><strong>Nivel</strong>: Profundidad de un nodo en relación con la raíz.</p></li>
+<li><p><strong>Altura del Árbol</strong>: la distancia máxima de la raíz a una hoja.</p></li>
+<li><p><strong>Profundidad</strong>: número de niveles desde el nodo raíz hasta un nodo específico.</p></li>
+<li><p><strong>Grafo Conectado</strong>: todos los nodos están interconectados sin ciclos, es decir, no hay bucles en la estructura.</p></li>
+</ul>
+<div align="center">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221129094006/Treedatastructure.png" width="70%">
+</div>
+<p>Imagen tomada de <a class="reference external" href="https://www.geeksforgeeks.org/applications-of-tree-data-structure/">Applications of tree data structure - Geeksforgeeks</a>.</p>
+<section id="representacion-grafica">
+<h3>Representación Gráfica<a class="headerlink" href="#representacion-grafica" title="Link to this heading">#</a></h3>
+<p>Un árbol de ejemplo puede verse así:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>        A (Raíz)
+       / \
+      B   C
+     / \   \
+    D   E   F
+</pre></div>
+</div>
+<p>En este caso:</p>
+<ul class="simple">
+<li><p><strong>A</strong> es la raíz.</p></li>
+<li><p><strong>D</strong>, <strong>E</strong>, y <strong>F</strong> son nodos hoja.</p></li>
+<li><p>La <strong>altura</strong> es 2.</p></li>
+</ul>
+<p>Para visualizar los árboles podemos utilizar:</p>
+<ul class="simple">
+<li><p>https://liveexample.pearsoncmg.com/dsanimation/BSTeBook.html</p></li>
+<li><p>https://graphonline.ru/en/</p></li>
+</ul>
+<p>O la clase <code class="docutils literal notranslate"><span class="pre">BSTAnimation.java</span></code> del libro guía de Y. Daniel.</p>
+</section>
+</section>
+<section id="tipos-de-arboles">
+<h2>Tipos de Árboles<a class="headerlink" href="#tipos-de-arboles" title="Link to this heading">#</a></h2>
+<div align="center">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20230111154258/typoes1.png" width="70%">
+</div>
+<p>Imagen tomada de <a class="reference external" href="https://www.geeksforgeeks.org/types-of-trees-in-data-structures/">Types of Trees in Data Structures - Geeksforgeeks</a>.</p>
+<ul class="simple">
+<li><p><strong>Árbol Binario</strong>: Cada nodo tiene un máximo de dos hijos.</p></li>
+<li><p><strong>Árbol Binario de Búsqueda (BST)</strong>: Árbol binario donde el valor del hijo izquierdo es menor que el del nodo padre, y el valor del hijo derecho es mayor.</p></li>
+<li><p><strong>Árbol AVL</strong>: Árbol binario de búsqueda balanceado, donde la diferencia de altura entre los subárboles de cada nodo es a lo sumo uno.</p></li>
+<li><p><strong>Árbol Rojo-Negro</strong>: Un BST balanceado que mantiene restricciones adicionales sobre la profundidad de los nodos.</p></li>
+<li><p><strong>Árbol N-ario</strong>: Cada nodo puede tener un número máximo de N hijos.</p></li>
+<li><p><strong>Árbol B</strong>: un árbol de búsqueda de grado múltiple utilizado en bases de datos y sistemas de archivos, donde cada nodo puede tener más de dos hijos.</p></li>
+</ul>
+</section>
+<section id="aplicaciones">
+<h2>Aplicaciones<a class="headerlink" href="#aplicaciones" title="Link to this heading">#</a></h2>
+<p>Los árboles son versátiles y se utilizan en muchas aplicaciones:</p>
+<ul class="simple">
+<li><p><strong>Sistemas de archivos</strong>: Organizan archivos y carpetas en jerarquías.</p></li>
+<li><p><strong>Bases de datos</strong>: Estructuras como B-trees y AVL trees se emplean en índices de bases de datos para búsquedas rápidas.</p></li>
+<li><p><strong>Compiladores</strong>: Utilizan árboles de sintaxis abstracta para interpretar el código.</p></li>
+<li><p><strong>Inteligencia Artificial</strong>: Se aplican en algoritmos de toma de decisiones, como los árboles de decisión.</p></li>
+<li><p><strong>Redes</strong>: Representan rutas en protocolos de redes y otros sistemas jerárquicos.</p></li>
+</ul>
+</section>
+<section id="ejemplos">
+<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Link to this heading">#</a></h2>
+<p>Los árboles se aplican ampliamente en situaciones reales que requieren organizar datos de forma jerárquica o rápida recuperación. En bases de datos, los <strong>árboles B y B+</strong> se usan para indexar datos, permitiendo búsquedas y accesos eficientes. En sistemas operativos, los <strong>árboles de directorios</strong> representan la estructura de archivos y carpetas, facilitando la navegación. Además, en inteligencia artificial, los <strong>árboles de decisión</strong> ayudan a clasificar y tomar decisiones basadas en datos, y en redes, los <strong>árboles de enrutamiento</strong> optimizan la transmisión de paquetes entre dispositivos en la red.</p>
+<div align="center">
+  <img src="../images/Figure8.1new.png" width="500" />
+  <img src="../images/Figure8.2new.png" width="500" />
+  <img src="../images/tree-3.png" width="350" />
+  <img src="../images/tree-4.png" width="500" />
+  <img src="../images/Figure25.5.png" width="500" />
+  <img src="../images/tree-8.png" width="500" />
+</div></section>
+<section id="recorridos">
+<h2>Recorridos<a class="headerlink" href="#recorridos" title="Link to this heading">#</a></h2>
+<section id="depth-first-search-dfs">
+<h3>Depth-First Search  (DFS)<a class="headerlink" href="#depth-first-search-dfs" title="Link to this heading">#</a></h3>
+<p>En español Búsqueda en profundidad o Búsqueda exhaustiva.</p>
+<section id="preorder">
+<h4>Preorder<a class="headerlink" href="#preorder" title="Link to this heading">#</a></h4>
+<figure class="align-default" id="figure8-13">
+<a class="reference internal image-reference" href="../images/Figure8.13.png"><img alt="../images/Figure8.13.png" src="../images/Figure8.13.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="postorder">
+<h4>Postorder<a class="headerlink" href="#postorder" title="Link to this heading">#</a></h4>
+<figure class="align-default" id="figure8-14">
+<a class="reference internal image-reference" href="../images/Figure8.14.png"><img alt="../images/Figure8.14.png" src="../images/Figure8.14.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="en-orden-inorder">
+<h4>En Orden (InOrder)<a class="headerlink" href="#en-orden-inorder" title="Link to this heading">#</a></h4>
+<figure class="align-default" id="figure8-16">
+<a class="reference internal image-reference" href="../images/Figure8.16.png"><img alt="../images/Figure8.16.png" src="../images/Figure8.16.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="breadth-first-search-bfs">
+<h3>Breadth-First Search (BFS)<a class="headerlink" href="#breadth-first-search-bfs" title="Link to this heading">#</a></h3>
+<p>En español Búsqueda general o Búsqueda por amplitud.</p>
+</section>
+<section id="tour-de-euler">
+<h3>Tour de Euler<a class="headerlink" href="#tour-de-euler" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="figure8-20">
+<a class="reference internal image-reference" href="../images/Figure8.20.png"><img alt="../images/Figure8.20.png" src="../images/Figure8.20.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-20" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En resumen,</p>
+<div align="center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Sorted_binary_tree_ALL_RGB.svg/800px-Sorted_binary_tree_ALL_RGB.svg.png" width="70%">
+</div>
+<p>Recorrido en profundidad (camino punteado) de un árbol binario:</p>
+<ul class="simple">
+<li><p>Orden previo (nodo visitado en la posición roja):
+F, B, A, D, C, E, G, I, H</p></li>
+<li><p>En-orden (nodo visitado en posición verde):
+A, B, C, D, E, F, G, H, I</p></li>
+<li><p>Post-orden (nodo visitado en la posición azul ):
+A, C, E, D, B, H, I, G, F</p></li>
+</ul>
+<p>Tomado de <a class="reference external" href="https://en.wikipedia.org/wiki/Tree_traversal">Wikipedia, Tree traversal </a>.</p>
+</section>
+</section>
+<section id="implementacion-de-arboles-en-java">
+<h2>Implementación de Árboles en Java<a class="headerlink" href="#implementacion-de-arboles-en-java" title="Link to this heading">#</a></h2>
+<section id="simple">
+<h3>Simple<a class="headerlink" href="#simple" title="Link to this heading">#</a></h3>
+<p>Un árbol de búsqueda binario puede implementarse utilizando una estructura enlazada, es decir, puede representarse mediante un conjunto de nodos enlazados. Cada nodo contiene un valor y dos enlaces denominados izquierda y derecha que hacen referencia al hijo izquierdo y al hijo derecho.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Clase simpla de un árbol binario</span>
+<span class="kd">class</span> <span class="nc">TreeNode</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">element</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">protected</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">right</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">TreeNode</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nodo_numeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<span class="c1">// primer nivel</span>
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">55</span><span class="p">);</span>
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="c1">// segundo nivel</span>
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">left</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">45</span><span class="p">);</span>
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">left</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">57</span><span class="p">);</span>
+
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">67</span><span class="p">);</span>
+<span class="n">nodo_numeros</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">107</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">nodo_numeros</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">right</span><span class="p">.</span><span class="na">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>107
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementa el árbol de las Figuras 8.3, 8.4, 25.5 y 25.8, utilizando la clase <code class="docutils literal notranslate"><span class="pre">TreeNode</span></code> .</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agregar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="arbol-binario-de-busqueda-bst">
+<h4>Árbol Binario de Búsqueda (BST)<a class="headerlink" href="#arbol-binario-de-busqueda-bst" title="Link to this heading">#</a></h4>
+<p>A continuación, implementaremos un árbol binario de búsqueda (BST), uno de los tipos de árboles más comunes en estructuras de datos. Esta clase incluye métodos para insertar, buscar y recorrer el árbol en diferentes órdenes.</p>
+<p>Además, la clase <code class="docutils literal notranslate"><span class="pre">ArbolBinario</span></code> utiliza nodos, cada nodo del árbol contiene un valor y referencias a sus hijos izquierdo y derecho.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Nodo</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Nodo</span><span class="w"> </span><span class="n">izquierdo</span><span class="p">,</span><span class="w"> </span><span class="n">derecho</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Nodo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">valor</span><span class="p">;</span>
+<span class="w">        </span><span class="n">izquierdo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">derecho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArbolBinario</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Constructor</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">ArbolBinario</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">raiz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para insertar un nuevo nodo en el árbol</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">insertar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                 </span>
+<span class="w">      </span><span class="n">raiz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Nodo</span><span class="w"> </span><span class="nf">insertarRecursivo</span><span class="p">(</span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raiz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">raiz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Nodo</span><span class="p">(</span><span class="n">valor</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">raiz</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">insertarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">raiz</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para buscar un nodo en el árbol</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">buscar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">buscarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">buscarRecursivo</span><span class="p">(</span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raiz</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">valor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">buscarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">buscarRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para recorrido en inorden</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoInorden</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">recorridoInordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoInordenRecursivo</span><span class="p">(</span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raiz</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">recorridoInordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="p">);</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">recorridoInordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para recorrido en preorden</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoPreorden</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">recorridoPreordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoPreordenRecursivo</span><span class="p">(</span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raiz</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">recorridoPreordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="p">);</span>
+<span class="w">          </span><span class="n">recorridoPreordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para recorrido en postorden</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoPostorden</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">recorridoPostordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recorridoPostordenRecursivo</span><span class="p">(</span><span class="n">Nodo</span><span class="w"> </span><span class="n">raiz</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">raiz</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">recorridoPostordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">izquierdo</span><span class="p">);</span>
+<span class="w">          </span><span class="n">recorridoPostordenRecursivo</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">derecho</span><span class="p">);</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">raiz</span><span class="p">.</span><span class="na">valor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Prueba la clase en la siguiente casilla, implementa el árbol en las Figuras 8.3, 8.4, 25.5 y 25.8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agregar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nivel-medio">
+<h3>Nivel Medio<a class="headerlink" href="#nivel-medio" title="Link to this heading">#</a></h3>
+<p>Implementar el árbol del repositorio <a class="reference external" href="https://github.com/indraantoor/Data-Structures-Algorithms-Java/tree/master/Non%20Linear%20Data%20Structures/Trees">Data-Structures-Algorithms-Java/Non Linear Data Structures/Trees - indraantoor -Github</a>. Como esta clase esta pensada para ejecutarla por fuera de notebooks, shell, para ejecutarla desde el notebook deben sacar la</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agregar código aquí</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.UnsupportedOperationException.*</span><span class="p">;</span>
+<span class="c1">//throw new NotImplementedException(&quot;TODO&quot;);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probar esta clase implementando alguna de las Figuras 8.3, 8.4, 25.5 y 25.8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Probar clase aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Árboles<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>s</p>
+<p>Un árbol binario es un árbol ordenado con las siguientes propiedades:</p>
+<ol class="arabic simple">
+<li><p>Cada nodo tiene como máximo dos hijos.</p></li>
+<li><p>Cada nodo hijo se etiqueta como hijo izquierdo o hijo derecho.</p></li>
+<li><p>Un hijo izquierdo precede a un hijo derecho en el orden de los hijos de un nodo.</p></li>
+</ol>
+<p>El subárbol enraizado en un hijo izquierdo o derecho de un nodo interno v se denomina subárbol izquierdo o subárbol derecho, respectivamente, de v. Un árbol binario es propio si cada nodo tiene cero o dos hijos. Algunas personas también se refieren a este tipo de árboles como árboles binarios completos. Así, en un árbol binario correcto, cada nodo interno tiene exactamente dos hijos. Un árbol binario que no es propio es impropio.</p>
+<figure class="align-default" id="tree-7">
+<a class="reference internal image-reference" href="../images/tree-7.png"><img alt="../images/tree-7.png" src="../images/tree-7.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#tree-7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Por lo tanto, <em>para cada nodo de un árbol de búsqueda binario, el valor de su hijo izquierdo es menor que el valor del nodo, y el valor de su hijo derecho es mayor que el valor del nodo.</em> Entonces, ¿qué ventajas tienen árboles binarios? <em>Un árbol de búsqueda binario es más eficaz que una lista para las operaciones de búsqueda, inserción y eliminación.</em></p>
+<p>Creen y agreguen un pantallazo creando el mismo árbol de la imagen (b) anterior utilizando la herramienta <a class="reference external" href="https://liveexample.pearsoncmg.com/dsanimation/BSTeBook.html">liveexample.pearsoncmg.com/dsanimation/BSTeBook.html</a>, primero limpien la pizarra.</p>
+</section>
+</section>
+<section id="aplicaciones-de-arboles-binarios">
+<h3>Aplicaciones de Árboles Binarios<a class="headerlink" href="#aplicaciones-de-arboles-binarios" title="Link to this heading">#</a></h3>
+<p float="left" style="text-align:center">
+  <img src="../images/Figure25.5.png" height="400px" />
+  <img src="../images/tree-8.png" height="400px" />
+  <img src="../images/tree-5.png" height="400px" />
+  <img src="../images/tree-6.png" height="400px" />  
+</p></section>
+<section id="robusta-y-completa">
+<h3>Robusta y Completa<a class="headerlink" href="#robusta-y-completa" title="Link to this heading">#</a></h3>
+<section id="intreface-y-clase-arbol">
+<h4>Intreface y Clase Árbol<a class="headerlink" href="#intreface-y-clase-arbol" title="Link to this heading">#</a></h4>
+<p>Implementa la interfaz <code class="docutils literal notranslate"><span class="pre">Tree.java</span></code> del libro de Y. Daniel. Listing 25.3, capítulo 25, página cmlxxxix.</p>
+<figure class="align-default" id="figure25-6">
+<a class="reference internal image-reference" href="../images/Figure25.6.png"><img alt="../images/Figure25.6.png" src="../images/Figure25.6.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure25-6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, implementa el código de <code class="docutils literal notranslate"><span class="pre">BST.java</span></code>,  Binary Search Trees (BST). Listing 25.4, capítulo 25, página cmxci.</p>
+<figure class="align-default" id="figure25-7">
+<a class="reference internal image-reference" href="../images/Figure25.7.png"><img alt="../images/Figure25.7.png" src="../images/Figure25.7.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure25-7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<br>
+<blockquote>
+<div><p>BST es iterable porque está definido como un subtipo de la <code class="docutils literal notranslate"><span class="pre">interfaz</span> <span class="pre">java.lang.Iterable</span></code>.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, implementa la clase de prueba <code class="docutils literal notranslate"><span class="pre">TestBST.ava</span></code> del libro guía. Listing 25.5, capítulo 25, página cmxcvi.</p>
+<p>Esta clase implementa una solución a la estructura de la siguiente image:</p>
+<figure class="align-default" id="tree-8">
+<a class="reference internal image-reference" href="../images/tree-8.png"><img alt="../images/tree-8.png" src="../images/tree-8.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#tree-8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo se eliminan elementos de un árbol? Implementa y prueba la clase <code class="docutils literal notranslate"><span class="pre">TestBSTDelete.java</span></code> del libro guía. Listing 25.7, capítulo 25, página m.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, implementemos la clase para iterar sobre un árbol BTS, <code class="docutils literal notranslate"><span class="pre">TestBSTWithIterator.java</span></code>, Listing 25.10, capítulo 25, página mvii.</p>
+<p>BST is iterable because it is defined as a subtype of the java.lang.Iterable
+interface.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Utilizando esta clase, la más completa y robusta, implementar los árboles de las Figuras 8.5, 8.6, 25.5 y 25.8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Ingresar código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="actividades-practicas">
+<h2>Actividades Prácticas<a class="headerlink" href="#actividades-practicas" title="Link to this heading">#</a></h2>
+<p>En esta práctica realizaremos las siguientes tres tareas:</p>
+<ul class="simple">
+<li><p>Implementar los árboles de las Figura 8.3, 8.4, 25.5, y 25.8, utilizando los diferentes códigos que hay en el notebook, ¿que diferencias hay, que ventajas/desventajas existen entre esas clases?</p></li>
+<li><p>Utilizando la clase robusta implementar los árboles de las Figuras 8.5, 8.6, 25.5 y 25.8. Además, recorrer los árboles de forma Depth First Search (DFS): Inorder, Preorder, y Postorder; y con Breadth First Search (BFS).</p></li>
+<li><p>Implementar la clase <code class="docutils literal notranslate"><span class="pre">BSTAnimation.java</span></code> para visualizar los árboles binarios. Recuerden que para poder ejecutar esta clase se necesitan de otras clases y crear un proyecto que no sea <em>No Archetype</em> <em>sino JavaFX</em>. (Opcional)</p></li>
+</ul>
+<blockquote>
+<div><p>[!NOTE]
+El trabajo se debe entregar como un proyecto de java. Deben subir la carpeta del proyecto comprimida en formato .zip o .tar.</p>
+</div></blockquote>
+</section>
+<section id="conclusion">
+<h2>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Los árboles son una estructura de datos esencial en programación y se aplican en diversas áreas de la informática. Al comprender los conceptos teóricos y poner en práctica la implementación de árboles en Java, se obtiene una herramienta poderosa para la manipulación y organización de datos complejos de manera jerárquica.</p>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<section id="libros">
+<h3>Libros<a class="headerlink" href="#libros" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Michael T. Goodrich, Roberto Tamassia, y Michael H. Goldwasser. <em>Data Structures and Algorithms in Java™</em>. Wiley sexta edición, 2014. Capítulo 8, página 307.</p></li>
+<li><p>Y. Daniel Liang. <em>Introduction to Java Programming and Data Structures, Comprehensive Version</em>. Pearson edición 12, 2019. Capítulo 25, paǵina cmlxxxiii.</p></li>
+</ul>
+</section>
+<section id="repositorios">
+<h3>Repositorios<a class="headerlink" href="#repositorios" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/indraantoor/Data-Structures-Algorithms-Java/tree/master/Non%20Linear%20Data%20Structures/Trees">Data-Structures-Algorithms-Java - indraantoor - Github</a></p></li>
+<li><p><a class="reference external" href="https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/source-code.php">Introduction to Java Programming and Data Structures, Comprehensive Version, 12th Edition Authors: Y. Daniel LiangY. Daniel Liang - Source Code</a></p></li>
+<li><p><a class="reference external" href="https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/ExampleByChapters.htmlhttps://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/ExampleByChapters.html">Examples from Introduction to Java Programming and Data Structures, Comprehensive 12E, Y. Daniel LiangExamples from Introduction to Java Programming and Data Structures, Comprehensive 12E, Y. Daniel Liang</a></p></li>
+</ul>
+</section>
+<section id="guias-y-tutoriales">
+<h3>Guías y Tutoriales<a class="headerlink" href="#guias-y-tutoriales" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/">Tree Traversal Techniques</a></p></li>
+<li><p><a class="reference external" href="https://www.freecodecamp.org/news/binary-search-tree-traversal-inorder-preorder-post-order-for-bst/">Binary Search Tree Traversal – Inorder, Preorder, Post Order for BST</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal - Wikipedia</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/binary-search-tree-traversal-inorder-preorder-post-order/">Binary Search Tree (BST) Traversals – Inorder, Preorder, Post Order</a></p></li>
+<li><p><a class="reference external" href="https://www.javatpoint.com/tree">Tree Data Structure - JavatPoint</a></p></li>
+<li><p><a class="reference external" href="https://www.tutorialspoint.com/dsa_using_java/dsa_using_java_tree.htm">DSA using Java - Tree</a></p></li>
+<li><p><a class="reference external" href="https://javachallengers.com/tree-data-structure-with-java/">Tree Data Structure with Java</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "java"
+        },
+        kernelOptions: {
+            name: "java",
+            path: "./Lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'java'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="9.BusesAndProcessors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Buses de Comunicaciones y Nuevos Procesadores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="11.0.Graphs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Grafos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos">Objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-formal">Definición Formal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-basicos">Conceptos Básicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descripcion-y-caracteristicas">Descripción y Características</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-grafica">Representación Gráfica</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-arboles">Tipos de Árboles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos">Ejemplos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recorridos">Recorridos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#depth-first-search-dfs">Depth-First Search  (DFS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preorder">Preorder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#postorder">Postorder</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#en-orden-inorder">En Orden (InOrder)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breadth-first-search-bfs">Breadth-First Search (BFS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tour-de-euler">Tour de Euler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-arboles-en-java">Implementación de Árboles en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple">Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arbol-binario-de-busqueda-bst">Árbol Binario de Búsqueda (BST)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nivel-medio">Nivel Medio</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Árboles</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-arboles-binarios">Aplicaciones de Árboles Binarios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#robusta-y-completa">Robusta y Completa</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intreface-y-clase-arbol">Intreface y Clase Árbol</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#actividades-practicas">Actividades Prácticas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libros">Libros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repositorios">Repositorios</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guias-y-tutoriales">Guías y Tutoriales</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Aguilera Novoa
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  ETITC
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

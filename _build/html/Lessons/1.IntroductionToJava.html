@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Configuración de Java &#8212; Data Structure</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lessons/1.IntroductionToJava';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Primer Taller Solución" href="1.IntroductionToJava_Solution.html" />
+    <link rel="prev" title="Data Structure" href="../README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logoED.png" class="logo__image only-light" alt="Data Structure - Home"/>
+    <script>document.write(`<img src="../_static/logoED.png" class="logo__image only-dark" alt="Data Structure - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Data Structure
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Configuración de Java</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.IntroductionToJava_Solution.html">Primer Taller Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.OOP_Fundamentals.html">Introducción a Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.OOP_Fundamentals_Solution.html">Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/First/First.html">First Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V2.html">V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/Supletorio.html">Supletorio</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Data Structures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3.Strings.html">Cadenas (Strings)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3.Arrays.html">Arreglos (Arrays)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4.MultidimensionalArrays.html">Arreglos de Varias Dimensiones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.ReferencesNodesAndLinkedLists.html">Referencias, Nodos, y Listas Enlazadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.GenericsIterfacesAndIterators.html">Genéricos, Interfaces e Iteradores en Java</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.Stacks.html">Pilas (Stacks)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.Queues.html">Colas (Queues)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/Second/Second.html">Second Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V2.html">V2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Buses and Processors</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="9.BusesAndProcessors.html">Buses de Comunicaciones y Nuevos Procesadores</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Non-Linear Data Structures</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10.Trees.html">Árboles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="11.0.Graphs.html">Grafos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="11.1.UnweightedGraphs.html">Grafos Sin Peso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11.2.WeightedGraphs.html">Grafos Con Peso</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2/issues/new?title=Issue%20on%20page%20%2FLessons/1.IntroductionToJava.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lessons/1.IntroductionToJava.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Configuración de Java</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-vs-jre-vs-jdk">JVM vs JRE vs JDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretado-vs-compilado">Interpretado vs Compilado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-en-java">Hello World en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-java">Instalación de Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutando-java">Ejecutando Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jshell">JShell</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linea-de-comandos-cli">Línea de Comandos (CLI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eclipse">Eclipse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#netbeans">NetBeans</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-vsc">Visual Studio Code (VSC)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-opcional">Google Colab (Opcional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutando-cli">Ejecutando CLI</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#instalando-el-kernel-de-java">Instalando el Kernel de Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-variables">Tipos de Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guias">Guias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion">Documentación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-de-youtube">Vídeos de Youtube</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="configuracion-de-java">
+<h1>Configuración de Java<a class="headerlink" href="#configuracion-de-java" title="Link to this heading">#</a></h1>
+<p>Java fue desarrollado por Sun Microsystems en 1995 como un lenguaje de programación robusto, portátil y orientado a objetos. Su objetivo era permitir que los desarrolladores escribieran código una vez y lo ejecutaran en cualquier dispositivo, gracias a la Máquina Virtual Java (JVM). Java ha evolucionado para convertirse en uno de los lenguajes más populares y utilizados en el mundo, siendo fundamental en aplicaciones empresariales, desarrollo web, móviles (Android) y sistemas embebidos. Aprender Java es crucial para cualquier programador, ya que ofrece una base sólida en programación orientada a objetos y una amplia demanda en la industria tecnológica, asegurando versatilidad y oportunidades de empleo.</p>
+<center>
+<table style="width:100%">
+<tr>
+</tr>
+<tr>
+<td>
+<figure class="align-default" id="java-graph">
+<a class="reference internal image-reference" href="../images/java_graph.png"><img alt="../images/java_graph.png" src="../images/java_graph.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#java-graph" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+<td>
+<center>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=Og847HVwRSI"><img alt="Interpreted vs Compiled" src="https://img.youtube.com/vi/Og847HVwRSI/hqdefault.jpg" /></a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>Imagen tomada de <a class="reference external" href="https://www.researchgate.net/publication/353521212_Programming_Languages_A_Usage-based_Statistical_Analysis_and_Visualization">Programming Languages: A Usage-based Statistical Analysis and Visualization</a>.</p>
+<p>Puedes encontrar más información sobre llama en Wikipedia, <a class="reference external" href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java (programming language)</a>.</p>
+<section id="jvm-vs-jre-vs-jdk">
+<h2>JVM vs JRE vs JDK<a class="headerlink" href="#jvm-vs-jre-vs-jdk" title="Link to this heading">#</a></h2>
+<center>
+<table style="width:100%">
+<tr>
+<td>
+<figure class="align-default" id="matrioska">
+<a class="reference internal image-reference" href="../images/matrioska.png"><img alt="../images/matrioska.png" src="../images/matrioska.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Ilustración de JVM, JRE, y JDK.</span><a class="headerlink" href="#matrioska" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+<td>
+<figure class="align-default" id="java-diagram">
+<a class="reference internal image-reference" href="../images/java_diagram.png"><img alt="../images/java_diagram.png" src="../images/java_diagram.png" style="width: 100%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Conceptos Básicos de Java.</span><a class="headerlink" href="#java-diagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="interpretado-vs-compilado">
+<h2>Interpretado vs Compilado<a class="headerlink" href="#interpretado-vs-compilado" title="Link to this heading">#</a></h2>
+<center>
+<table>
+<tr>
+    <th> Definición </th>
+    <th> Tabla Comparativa </th>
+</tr>
+<tr>
+<td>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=1OukpDfsuXE"><img alt="Interpreted vs Compiled" src="https://img.youtube.com/vi/1OukpDfsuXE/hqdefault.jpg" /></a></p>
+</td>
+<td>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=I1f45REi3k4"><img alt="Interpreted vs Compiled" src="https://img.youtube.com/vi/I1f45REi3k4/hqdefault.jpg" /></a></p>
+</td>
+</tr>
+</table>
+</center>
+</section>
+<section id="hello-world-en-java">
+<h2>Hello World en Java<a class="headerlink" href="#hello-world-en-java" title="Link to this heading">#</a></h2>
+<p>En esta clase, aprenderás a escribir, compilar y ejecutar un programa simple en Java que imprima “Hello World” en la consola. Exploraremos cómo hacerlo desde diferentes entornos de desarrollo: la línea de comandos (CLI), Eclipse, NetBeans y Visual Studio Code (VS Code). Este conocimiento te proporcionará una base sólida para trabajar con Java en cualquier entorno.</p>
+<p>Después exploraremos los tipos de variables en java y como imprimirlos de diferentes formas.</p>
+<section id="instalacion-de-java">
+<h3>Instalación de Java<a class="headerlink" href="#instalacion-de-java" title="Link to this heading">#</a></h3>
+<p>Lo más recomendable es descargar la versión más reciente de java, 22, pero para evitar inconveniendes se sugiere descargar la versión 21.</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<p>Descarga openjdk de la página oficial de <a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle</a>.</p>
+</section>
+<section id="ubuntu">
+<h4>Ubuntu<a class="headerlink" href="#ubuntu" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>openjdk-21-jdk
+</pre></div>
+</div>
+<p>Para verificar si java fue instalado correctamente abre una terminal: CMD o de Power Shell si estas en Windows, o una terminal simple en Ubuntu, y ejecuta:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>-version
+javac<span class="w"> </span>-version
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ejecutando-java">
+<h3>Ejecutando Java<a class="headerlink" href="#ejecutando-java" title="Link to this heading">#</a></h3>
+<section id="jshell">
+<h4>JShell<a class="headerlink" href="#jshell" title="Link to this heading">#</a></h4>
+<p>JShell es una herramienta de la línea de comandos que viene con Java a partir de la versión 9. Es un REPL (Read-Eval-Print Loop) para Java, que permite ejecutar fragmentos de código de forma interactiva sin la necesidad de compilar y ejecutar un programa completo. Es ideal para probar pequeños fragmentos de código o para aprender y enseñar conceptos de Java.</p>
+<p><strong>Paso 1:</strong> Iniciar JShell.</p>
+<ul class="simple">
+<li><p>Abre una terminal o línea de comandos.</p></li>
+<li><p>Escribe <code class="docutils literal notranslate"><span class="pre">jshell</span></code> y presiona Enter para iniciar JShell.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Escribir y ejecutar el código “Hello World”.</p>
+<ul class="simple">
+<li><p>Una vez dentro de JShell, simplemente escribe el siguiente código para imprimir “Hello World”:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Presiona Enter y JShell ejecutará el comando, mostrando “Hello World” inmediatamente en la consola.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Trabajar con variables y métodos en JShell.</p>
+<ul class="simple">
+<li><p>Puedes declarar variables y escribir métodos directamente en JShell. Por ejemplo, declara una variable:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>JShell te mostrará el valor asignado.</p></li>
+<li><p>También puedes definir métodos:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">greet</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello from JShell!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Y llamarlo inmediatamente después:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">greet</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Esto imprimirá “Hello from JShell!” en la consola.</p>
+<p><strong>Paso 4:</strong> Salir de JShell.
+Para salir de JShell, escribe:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">exit</span>
+</pre></div>
+</div>
+<p>o ingresa el comando <code class="docutils literal notranslate"><span class="pre">ctrl+d</span></code>, esto cerrará la sesión de JShell.</p>
+</section>
+<section id="linea-de-comandos-cli">
+<h4>Línea de Comandos (CLI)<a class="headerlink" href="#linea-de-comandos-cli" title="Link to this heading">#</a></h4>
+<p><strong>Paso 1:</strong> Asegúrate de tener Java instalado.</p>
+<ul class="simple">
+<li><p>Abre una terminal y escribe <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">-version</span></code>. Debes ver la versión de Java instalada.</p></li>
+<li><p>Si no está instalado, descárgalo e instálalo desde <a class="reference external" href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle</a>.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear el archivo fuente.</p>
+<ul class="simple">
+<li><p>Abre tu editor de texto favorito y escribe el siguiente código:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Guarda el archivo como <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code>.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Compilar el código.</p>
+<ul class="simple">
+<li><p>Navega al directorio donde guardaste <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> usando la terminal.</p></li>
+<li><p>Ejecuta el siguiente comando para compilar el programa:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>javac<span class="w"> </span>HelloWorld.java
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Esto generará un archivo <code class="docutils literal notranslate"><span class="pre">HelloWorld.class</span></code>.</p></li>
+</ul>
+<p><strong>Paso 4:</strong> Ejecutar el programa.</p>
+<ul class="simple">
+<li><p>Ejecuta el programa compilado con el siguiente comando:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java<span class="w"> </span>HelloWorld
+</pre></div>
+</div>
+<p>Deberías ver “Hello World” impreso en la consola.</p>
+</section>
+<section id="eclipse">
+<h4>Eclipse<a class="headerlink" href="#eclipse" title="Link to this heading">#</a></h4>
+<p><strong>Paso 1:</strong> Descargar e instalar Eclipse.</p>
+<ul class="simple">
+<li><p>Descarga Eclipse desde <a class="reference external" href="https://www.eclipse.org/downloads/">aquí</a>.</p></li>
+<li><p>Instala la opción para desarrolladores de java (java developer), luego abre Eclipse.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear un nuevo proyecto Java.</p>
+<ul class="simple">
+<li><p>En Eclipse, selecciona <code class="docutils literal notranslate"><span class="pre">File</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">New</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">Project</span></code>.</p></li>
+<li><p>Nombra el proyecto como <code class="docutils literal notranslate"><span class="pre">HelloWorldProject</span></code> y haz clic en <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Crear la clase <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>.</p>
+<ul class="simple">
+<li><p>Haz clic derecho en la carpeta <code class="docutils literal notranslate"><span class="pre">src</span></code> dentro del proyecto y selecciona <code class="docutils literal notranslate"><span class="pre">New</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Class</span></code>.</p></li>
+<li><p>Nombra la clase como <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code> y asegúrate de que la opción <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">void</span> <span class="pre">main(String[]</span> <span class="pre">args)</span></code> esté seleccionada.</p></li>
+<li><p>Haz clic en <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
+</ul>
+<p><strong>Paso 4:</strong> Escribir el código.</p>
+<ul class="simple">
+<li><p>En la ventana de edición de Eclipse, escribe el código de “HelloWorld” antes creado.</p></li>
+</ul>
+<p><strong>Paso 5:</strong> Ejecutar el programa.</p>
+<ul class="simple">
+<li><p>Haz clic derecho en el archivo <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> y selecciona <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">As</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">Application</span></code>.</p></li>
+<li><p>El programa se ejecutará y mostrará “Hello World” en la consola de Eclipse.</p></li>
+</ul>
+</section>
+<section id="netbeans">
+<h4>NetBeans<a class="headerlink" href="#netbeans" title="Link to this heading">#</a></h4>
+<p><strong>Paso 1:</strong> Descargar e instalar NetBeans.</p>
+<ul class="simple">
+<li><p>Descarga NetBeans desde <a class="reference external" href="https://netbeans.apache.org/download/index.html">aquí</a>.</p></li>
+<li><p>Instala y abre NetBeans.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear un nuevo proyecto Java.</p>
+<ul class="simple">
+<li><p>En NetBeans, selecciona <code class="docutils literal notranslate"><span class="pre">File</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Project</span></code>.</p></li>
+<li><p>Selecciona <code class="docutils literal notranslate"><span class="pre">Java</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">Application</span></code> y haz clic en <code class="docutils literal notranslate"><span class="pre">Next</span></code>.</p></li>
+<li><p>Nombra el proyecto como <code class="docutils literal notranslate"><span class="pre">HelloWorldProject</span></code> y haz clic en <code class="docutils literal notranslate"><span class="pre">Finish</span></code>.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Crear la clase <code class="docutils literal notranslate"><span class="pre">HelloWorld</span></code>.</p>
+<ul class="simple">
+<li><p>NetBeans crea una clase principal automáticamente si eliges “Create Main Class” al crear el proyecto. Si no, crea una nueva clase.</p></li>
+<li><p>Escribe el código “HelloWorld” ya creado anteriormente en el editor.</p></li>
+</ul>
+<p><strong>Paso 4:</strong> Ejecutar el programa.</p>
+<ul class="simple">
+<li><p>Haz clic en el botón <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">Project</span></code> (ícono de triángulo verde).</p></li>
+<li><p>Verás “Hello World” en la ventana de salida de NetBeans.</p></li>
+</ul>
+</section>
+<section id="visual-studio-code-vsc">
+<h4>Visual Studio Code (VSC)<a class="headerlink" href="#visual-studio-code-vsc" title="Link to this heading">#</a></h4>
+<p>Es altamente recomendado que descarguen <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>, este es un entorno desarrollado para Python que permite trabajar con notebooks de forma sencilla y óptima.</p>
+<p><strong>Paso 1:</strong> Instalar Visual Studio Code y la extensión de Java.</p>
+<ul class="simple">
+<li><p>Descarga Visual Studio Code desde <a class="reference external" href="https://code.visualstudio.com/">aquí</a>.</p></li>
+<li><p>Instala la extensión de Java: Ve a la sección de extensiones (ícono de cubos) y busca <code class="docutils literal notranslate"><span class="pre">Java</span> <span class="pre">Extension</span> <span class="pre">Pack</span></code>. Instálala.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear un nuevo archivo Java.</p>
+<ul class="simple">
+<li><p>Abre VS Code y crea un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code>.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Escribir el código.</p>
+<ul class="simple">
+<li><p>Escribe el código “HelloWorld” ya creado anteriormente en el editor.</p></li>
+</ul>
+<p><strong>Paso 4:</strong> Ejecutar el programa.</p>
+<ul class="simple">
+<li><p>Guarda el archivo y haz clic en <code class="docutils literal notranslate"><span class="pre">Run</span></code> en la esquina superior derecha de VS Code o presiona <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">F5</span></code>.</p></li>
+<li><p>VS Code compilará y ejecutará el programa, mostrando “Hello World” en la terminal integrada.</p></li>
+</ul>
+<p><strong>Paso 5:</strong> Java Notebooks.</p>
+<ul class="simple">
+<li><p>Descargar e instalar <a class="reference external" href="https://github.com/SpencerPark/IJava">IJava</a> siguiento su tutorial de <a class="reference external" href="https://github.com/SpencerPark/IJava?tab=readme-ov-file#Installing">instalación</a>. Pueden seguir el tutorial <a class="reference external" href="https://www.youtube.com/watch?v=UKT6t9R5RHA">Java in Jupyter Notebooks – Part 1: Introduction to Java Programming in Jupyter Notebook </a>.</p></li>
+</ul>
+</section>
+<section id="docker">
+<h4>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h4>
+<p>Docker es una plataforma de contenedorización que permite empaquetar aplicaciones junto con todas sus dependencias en un contenedor ligero y portátil. Esto asegura que la aplicación funcione de manera idéntica en cualquier entorno, lo que es particularmente útil en desarrollo, pruebas y despliegue.</p>
+<p><strong>Paso 1:</strong> Instalar Docker.</p>
+<ul class="simple">
+<li><p>Asegúrate de tener Docker instalado en tu sistema. Puedes descargarlo e instalarlo desde <a class="reference external" href="https://www.docker.com/products/docker-desktop">Docker</a>.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear el archivo fuente de Java.</p>
+<ul class="simple">
+<li><p>Crea un archivo llamado <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> en un directorio de tu elección con el siguiente contenido:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Paso 3:</strong> Crear un <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p>
+<ul class="simple">
+<li><p>En el mismo directorio donde guardaste <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code>, crea un archivo llamado <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> (sin extensión) con el siguiente contenido:</p></li>
+</ul>
+<div class="highlight-Dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># Usar la imagen base de OpenJDK</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">openjdk:21-jdk</span>
+
+<span class="c"># Establecer el directorio de trabajo en el contenedor</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Copiar el archivo Java en el contenedor</span>
+<span class="k">COPY</span><span class="w"> </span>HelloWorld.java<span class="w"> </span>/app
+
+<span class="c"># Compilar el archivo Java</span>
+<span class="k">RUN</span><span class="w"> </span>javac<span class="w"> </span>HelloWorld.java
+
+<span class="c"># Definir el comando para ejecutar el programa</span>
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;HelloWorld&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Paso 4:</strong> Construir la imagen de Docker.</p>
+<ul class="simple">
+<li><p>Abre una terminal en el directorio donde están ubicados <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code> y el <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code>.</p></li>
+<li><p>Ejecuta el siguiente comando para construir la imagen de Docker:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>java-hello-world<span class="w"> </span>.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Docker construirá la imagen, compilando el código Java dentro del contenedor.</p></li>
+</ul>
+<p><strong>Paso 5:</strong> Ejecutar el contenedor.</p>
+<ul class="simple">
+<li><p>Una vez construida la imagen, ejecuta el siguiente comando para correr el contenedor y ver el resultado:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>java-hello-world
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>El contenedor se ejecutará y deberías ver “Hello World” impreso en la consola.</p></li>
+</ul>
+<p><strong>Paso 6:</strong> Limpiar (opcional).</p>
+<ul class="simple">
+<li><p>Si deseas eliminar la imagen de Docker que has creado, puedes hacerlo con el siguiente comando:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>rmi<span class="w"> </span>java-hello-world
+</pre></div>
+</div>
+</section>
+<section id="google-colab-opcional">
+<h4>Google Colab (Opcional)<a class="headerlink" href="#google-colab-opcional" title="Link to this heading">#</a></h4>
+<section id="ejecutando-cli">
+<h5>Ejecutando CLI<a class="headerlink" href="#ejecutando-cli" title="Link to this heading">#</a></h5>
+<p><strong>Paso 1:</strong> Preparar Google Colab para Java.</p>
+<ul class="simple">
+<li><p>Google Colab está diseñado principalmente para Python, pero también puedes ejecutar código Java en él utilizando una configuración especial.</p></li>
+<li><p>Abre Google Colab desde <a class="reference external" href="https://colab.research.google.com/">colab.research.google.com</a>.</p></li>
+</ul>
+<p><strong>Paso 2:</strong> Crear una nueva libreta.</p>
+<ul class="simple">
+<li><p>Haz clic en <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Notebook</span></code> para crear una nueva libreta en Google Colab.</p></li>
+</ul>
+<p><strong>Paso 3:</strong> Configurar el entorno para ejecutar Java.</p>
+<ul class="simple">
+<li><p>En la primera celda de la libreta, escribe el siguiente comando para instalar el entorno JDK en Google Colab:</p></li>
+</ul>
+<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>!apt-get install openjdk-21-jdk
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ejecuta la celda (Ctrl + Enter) para instalar el JDK. Esto permitirá que puedas compilar y ejecutar código Java.</p></li>
+</ul>
+<p><strong>Paso 4:</strong> Escribir y ejecutar el código “Hello World”.</p>
+<ul class="simple">
+<li><p>En una nueva celda, escribe el código Java:</p></li>
+</ul>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span><span class="w"> </span><span class="n">HelloWorld</span><span class="p">.</span><span class="na">java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">HelloWorld</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ejecuta la celda para guardar el archivo <code class="docutils literal notranslate"><span class="pre">HelloWorld.java</span></code>.</p></li>
+</ul>
+<p><strong>Paso 5:</strong> Compilar y ejecutar el programa.</p>
+<ul class="simple">
+<li><p>En una nueva celda, compila el programa con el siguiente comando:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!javac<span class="w"> </span>HelloWorld.java
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Luego, ejecuta el programa con el siguiente comando:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!java<span class="w"> </span>HelloWorld
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Verás “Hello World” impreso en la consola de salida de Colab.</p></li>
+</ul>
+</section>
+<section id="instalando-el-kernel-de-java">
+<h5>Instalando el Kernel de Java<a class="headerlink" href="#instalando-el-kernel-de-java" title="Link to this heading">#</a></h5>
+<p>Instala el kernel de Java copiando y pegando el siguiente código en la primera casilla</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%%sh
+<span class="c1"># Install java kernel</span>
+wget<span class="w"> </span>-q<span class="w"> </span>https://github.com/SpencerPark/IJava/releases/download/v1.3.0/ijava-1.3.0.zip
+unzip<span class="w"> </span>-q<span class="w"> </span>ijava-1.3.0.zip
+python<span class="w"> </span>install.py
+
+<span class="c1"># Install proxy for the java kernel</span>
+wget<span class="w"> </span>-qO-<span class="w"> </span>https://gist.github.com/SpencerPark/e2732061ad19c1afa4a33a58cb8f18a9/archive/b6cff2bf09b6832344e576ea1e4731f0fb3df10c.tar.gz<span class="w"> </span><span class="p">|</span><span class="w"> </span>tar<span class="w"> </span>xvz<span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span>
+python<span class="w"> </span>install_ipc_proxy_kernel.py<span class="w"> </span>--kernel<span class="o">=</span>java<span class="w"> </span>--implementation<span class="o">=</span>ipc_proxy_kernel.py
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Es importante ejecutar estos comandos cuando se utilice Google Colab.</p>
+</div>
+<p>Ahora conectate de forma local y después reinicia el kernel. Ya realizado este proceso no se debe repetir, si no podrías causar un error.</p>
+<p><strong>Paso 1</strong></p>
+<figure class="align-default" id="colab1">
+<a class="reference internal image-reference" href="../images/colab1.png"><img alt="../images/colab1.png" src="../images/colab1.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Colab 1</span><a class="headerlink" href="#colab1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Paso 2</strong></p>
+<figure class="align-default" id="colab2">
+<a class="reference internal image-reference" href="../images/colab2.png"><img alt="../images/colab2.png" src="../images/colab2.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Colab 2</span><a class="headerlink" href="#colab2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Si todo esta correcto ahora debe aparecer conectado el notebook con dos barras verde (ram y cpu)</p>
+<p><strong>Paso 2</strong></p>
+<figure class="align-default" id="colab3">
+<a class="reference internal image-reference" href="../images/colab3.png"><img alt="../images/colab3.png" src="../images/colab3.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Colab 3</span><a class="headerlink" href="#colab3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</section>
+<section id="tipos-de-variables">
+<h2>Tipos de Variables<a class="headerlink" href="#tipos-de-variables" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://cdn.mindmajix.com/blog/images/java-03_0719.png"><img alt="https://cdn.mindmajix.com/blog/images/java-03_0719.png" src="https://cdn.mindmajix.com/blog/images/java-03_0719.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Clacificación de las variables en java. Imagen tomada de <a class="reference external" href="https://mindmajix.com/data-types-in-java">Data Types in java</a>.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="https://static.wikia.nocookie.net/java/images/0/0c/Variables.jpeg/revision/latest/scale-to-width-down/1000?cb=20141023145013"><img alt="https://static.wikia.nocookie.net/java/images/0/0c/Variables.jpeg/revision/latest/scale-to-width-down/1000?cb=20141023145013" src="https://static.wikia.nocookie.net/java/images/0/0c/Variables.jpeg/revision/latest/scale-to-width-down/1000?cb=20141023145013" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Tipos de variables en java. Imagen tomada de <a class="reference external" href="https://java.fandom.com/wiki/Variables">Variables Java</a>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ejercicios">
+<h2>Ejercicios<a class="headerlink" href="#ejercicios" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Crea un Notebook en VSC con el kernel de java donde se muestren las operaciones entre caracteres, cuerdas (string), y números (int, float, double, etc). Además agrega el código de la clase “HelloWorld” que ya hemos creado pero personaliza el texto. Deben ser por lo menos 7 ejemplos.</p></li>
+<li><p>Utilizando el código del punto anterior, crea una clase (asígnale un nombre diferente) donde se imprima por lo menos 7 variables con los ejemplos del primer punto.</p></li>
+<li><p>Crea una clase llamada Porcentaje que dado un número entero imprima el número con signo de porcentaje seguido de la misma cantidad de símbolos #, es decir, dado el número 27 la clase debe imprimir:</p></li>
+</ol>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">27</span>%:<span class="w"> </span><span class="c1">###########################</span>
+<span class="m">77</span>%:<span class="w"> </span><span class="c1">#############################################################################</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>      Revisa la primera referencia en <a class="reference internal" href="#documentacion"><span class="std std-ref">Documentación</span></a>.</p>
+<ol class="arabic simple">
+<li><p>Crea una clase llamada Impresiones donde se impriman varias variables en diferentes formatos, utilizando el método <code class="docutils literal notranslate"><span class="pre">Format()</span></code> de Java. Revisa las dos últimas referencias de guías y documentos. Escribe por lo menos 7 ejemplos.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Todos los códigos deben ser presentados en un Notebook llamado <strong>Taller1.ipynb</strong> que debe estar en el repositorio del curso y que después debe ser cargado al Campus Virtual.</p>
+<p><b>Fecha Máxima de Entrega: Agosto 20</b></p>
+</div>
+</section>
+<section id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>En esta clase, aprendimos cómo ejecutar un programa básico en Java que imprime “Hello World” utilizando diferentes entornos de desarrollo. Cada entorno tiene sus propias ventajas y es importante familiarizarse con ellos para poder trabajar en diferentes contextos profesionales. Esta base te permitirá abordar proyectos más complejos en el futuro.</p>
+<p>Además, revisamos los tipos de variables en Java y como estos se suelen operar entre si, sin olvidar las formas en las que se pueden imprimir (tarea).</p>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<section id="guias">
+<h3>Guias<a class="headerlink" href="#guias" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.oracle.com/javase/9/jshell/introduction-jshell.htm#JSHEL-GUID-630F27C8-1195-4989-9F6B-2C51D46F52C8">Oracle - Java Platform, Standard Edition Java Shell User’s Guide</a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/differences-jdk-jre-jvm/">Differences between JDK, JRE and JVM</a></p></li>
+<li><p><a class="reference external" href="https://www.startertutorials.com/corejava/java-virtual-machine.html">Java Virtual Machine</a></p></li>
+<li><p><a class="reference external" href="https://server2client.com/javaobjclasses/classstructure.html">Class Structure &amp; SyntaxS2C Home « Class Structure &amp; Syntax</a></p></li>
+</ul>
+</section>
+<section id="documentacion">
+<span id="id3"></span><h3>Documentación<a class="headerlink" href="#documentacion" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/lang/String.java">OpenJDK - java - String class</a></p></li>
+<li><p><a class="reference external" href="https://www.w3schools.com/java/ref_string_format.asp">Java String format() Method</a></p></li>
+<li><p><a class="reference external" href="https://www.javatpoint.com/java-string-format">Java String format()</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/_/openjdk">openjdk - Docker Official Image</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/layers/library/openjdk/21-jdk/images/sha256-728a7010f5cc48db66d282d81694e49e9735a1490e831b0bf7a25cfc1b6e964c">openjdk - openjdk:21-jdk - Multi-platform</a></p></li>
+</ul>
+</section>
+<section id="videos-de-youtube">
+<h3>Vídeos de Youtube<a class="headerlink" href="#videos-de-youtube" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NHrsLjhjmi4">#4 How Java Works </a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=RYd_hagCiVk">Understand the Differences between JVM vs JRE vs JDK in java in one video #1.3</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=PZRI1IfStY0">Floating Point Numbers - Computerphile </a></p></li>
+</ul>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Structure</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="1.IntroductionToJava_Solution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Primer Taller Solución</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jvm-vs-jre-vs-jdk">JVM vs JRE vs JDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretado-vs-compilado">Interpretado vs Compilado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hello-world-en-java">Hello World en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-java">Instalación de Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutando-java">Ejecutando Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jshell">JShell</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linea-de-comandos-cli">Línea de Comandos (CLI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eclipse">Eclipse</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#netbeans">NetBeans</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code-vsc">Visual Studio Code (VSC)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#google-colab-opcional">Google Colab (Opcional)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejecutando-cli">Ejecutando CLI</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#instalando-el-kernel-de-java">Instalando el Kernel de Java</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-variables">Tipos de Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicios">Ejercicios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guias">Guias</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentacion">Documentación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos-de-youtube">Vídeos de Youtube</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Aguilera Novoa
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  ETITC
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

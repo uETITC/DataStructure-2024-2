@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+------------------
+
+
+io.github.spencerpark.ijava.execution.CodeEvaluator.eval(CodeEvaluator.java:150)
+io.github.spencerpark.ijava.JavaKernel.evalRaw(JavaKernel.java:276)
+io.github.spencerpark.ijava.JavaKernel.eval(JavaKernel.java:281)
+io.github.spencerpark.jupyter.kernel.BaseKernel.handleExecuteRequest(BaseKernel.java:334)
+io.github.spencerpark.jupyter.channels.ShellChannel.lambda$bind$0(ShellChannel.java:64)
+io.github.spencerpark.jupyter.channels.Loop.lambda$new$0(Loop.java:21)
+io.github.spencerpark.jupyter.channels.Loop.run(Loop.java:78)
+

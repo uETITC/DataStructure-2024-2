@@ -1,0 +1,45 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README
+title: "Data Structure"
+
+parts:
+  - caption: "Introduction"
+    numbered: false
+    chapters:
+    - file: Lessons/1.IntroductionToJava.md
+      sections:
+      - file: Lessons/1.IntroductionToJava_Solution.ipynb
+    - file: Lessons/2.OOP_Fundamentals.ipynb
+      sections:
+      - file: Lessons/2.OOP_Fundamentals_Solution.ipynb
+    - file: Lessons/Exams/First/First.md
+      sections:
+      - file: Lessons/Exams/First/V1.ipynb
+      - file: Lessons/Exams/First/V2.ipynb
+      - file: Lessons/Exams/First/Supletorio.ipynb
+  - caption: "Linear Data Structures"
+    chapters:
+    - file: Lessons/3.Strings.ipynb
+    - file: Lessons/3.Arrays.ipynb
+    - file: Lessons/4.MultidimensionalArrays.ipynb
+    - file: Lessons/5.ReferencesNodesAndLinkedLists.ipynb
+    - file: Lessons/6.GenericsIterfacesAndIterators.ipynb
+    - file: Lessons/7.Stacks.ipynb
+    - file: Lessons/8.Queues.ipynb
+    - file: Lessons/Exams/Second/Second.md
+      sections:
+        - file: Lessons/Exams/Second/V1.ipynb
+        - file: Lessons/Exams/Second/V2.ipynb
+  - caption: "Buses and Processors"
+    chapters:
+    - file: Lessons/9.BusesAndProcessors.md
+  - caption: "Non-Linear Data Structures"
+    chapters:
+    - file: Lessons/10.Trees.ipynb
+    - file: Lessons/11.0.Graphs.ipynb
+      sections:
+        - file: Lessons/11.1.UnweightedGraphs.ipynb
+        - file: Lessons/11.2.WeightedGraphs.ipynb

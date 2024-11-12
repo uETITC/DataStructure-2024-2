@@ -1,0 +1,67 @@
+Traceback (most recent call last):
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/saguileran/anaconda3/envs/jb/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+public class Edge {
+  int u, v;
+  public Edge(int u, int v) {
+      this.u = u;
+      this.v = v;
+  }
+  public boolean equals(Object o) {
+      return u == ((Edge)o).u && v == ((Edge)o).v;
+  }
+}
+
+ArrayList<Edge> list = new ArrayList<>();
+list.add(new Edge(0, 1));
+
+List<ArrayList<Edge>> neighbors = new ArrayList<>();
+neighbors.add(new ArrayList<Edge>());
+neighbors.get(0).add(new Edge(0, 1));
+neighbors.get(0).add(new Edge(0, 3));
+neighbors.get(0).add(new Edge(0, 5));
+neighbors.add(new ArrayList<Edge>());
+neighbors.get(1).add(new Edge(1, 0));
+neighbors.get(1).add(new Edge(1, 2));
+neighbors.get(1).add(new Edge(1, 3));
+/// ...
+neighbors.get(11).add(new Edge(11, 8));
+neighbors.get(11).add(new Edge(11, 9));
+neighbors.get(11).add(new Edge(11, 10));
+------------------
+
+
+java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+java.base/java.util.Objects.checkIndex(Objects.java:385)
+java.base/java.util.ArrayList.get(ArrayList.java:427)
+.(#27:1)
+
