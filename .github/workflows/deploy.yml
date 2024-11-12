@@ -62,7 +62,7 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        personal_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir:  ./_build/html
         publish_branch: gh-pages
      # For local testing - just verify the build
