@@ -15,6 +15,9 @@ on:
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
   deploy-book:
+    # environment:
+    #   name: github-pages
+    #   url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -26,7 +29,8 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: 3.11
-
+    - name: Checkout
+      uses: actions/checkout@v4
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
@@ -57,8 +61,6 @@ jobs:
       run: |
         jupyter-book build .
 
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
