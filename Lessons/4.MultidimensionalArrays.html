@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Arreglos de Varias Dimensiones &#8212; Estructura de Datos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lessons/4.MultidimensionalArrays';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nodos" href="5.Nodes.html" />
+    <link rel="prev" title="Arreglos Unidimensionales" href="3.Arrays1D.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logoED.png" class="logo__image only-light" alt="Estructura de Datos - Home"/>
+    <img src="../_static/logoED.png" class="logo__image only-dark pst-js-only" alt="Estructura de Datos - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Estructura de Datos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1.IntroductionToJava.html">Configuración de Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.IntroductionToJava_Solution.html">Primer Taller Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.OOP_Fundamentals.html">Introducción a Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.OOP_Fundamentals_Solution.html">Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="9.BusesAndProcessors.html">Buses de Comunicaciones y Nuevos Procesadores</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/First/First.html">First Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V2.html">V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/Supletorio.html">Supletorio</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras Lineales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3.Strings.html">Cadenas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="3.Arrays.html">Arreglos</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="3.Arrays1D.html">Arreglos Unidimensionales</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Arreglos de Varias Dimensiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="5.Nodes.html">Nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.1.LinkedLists.html">Listas Enlazadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Interface.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Generics.html">Genéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Iterators.html">Iteradores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7.Stacks.html">Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.Queues.html">Colas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/Second/Second.html">Second Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V2.html">V2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras No-Lineales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10.Trees.html">Árboles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="11.0.Graphs.html">Grafos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="11.1.UnweightedGraphs.html">Grafos Sin Peso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11.2.WeightedGraphs.html">Grafos Con Peso</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/uETITC/DataStructure-2024-2/blob/main/Lessons/4.MultidimensionalArrays.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2/issues/new?title=Issue%20on%20page%20%2FLessons/4.MultidimensionalArrays.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lessons/4.MultidimensionalArrays.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Arreglos de Varias Dimensiones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-de-arreglos-multidimensionales">Definición de Arreglos Multidimensionales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-arreglos-multidimensionales">Tipos de Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglo-bidimensional-matriz">Arreglo Bidimensional (Matriz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-de-dimensiones-superiores">Arreglos de Dimensiones Superiores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-irregulares-jagged-arrays">Arreglos Irregulares (Jagged Arrays)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-basicas-en-arreglos-multidimensionales">Operaciones Básicas en Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion">Inicialización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceso-a-elementos">Acceso a Elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-sobre-arreglos">Iteración sobre Arreglos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busquedas-en-arreglos-multidimensionales">Búsquedas en Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-lineal">Búsqueda Lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-binaria">Búsqueda Binaria</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-arreglos-multidimensionales">Aplicaciones de Arreglos Multidimensionales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="arreglos-de-varias-dimensiones">
+<h1>Arreglos de Varias Dimensiones<a class="headerlink" href="#arreglos-de-varias-dimensiones" title="Link to this heading">#</a></h1>
+<section id="definicion-de-arreglos-multidimensionales">
+<h2>Definición de Arreglos Multidimensionales<a class="headerlink" href="#definicion-de-arreglos-multidimensionales" title="Link to this heading">#</a></h2>
+<p>Un <strong>arreglo multidimensional</strong> es una estructura de datos que permite almacenar y organizar datos en una tabla con más de una dimensión. El ejemplo más común es una matriz bidimensional, que se puede visualizar como una tabla de filas y columnas. En Java, los arreglos multidimensionales se implementan como arreglos de arreglos, permitiendo trabajar con datos en múltiples dimensiones de manera eficiente.</p>
+<ul class="simple">
+<li><p><strong>Arreglo bidimensional (matriz):</strong> Es el tipo más común de arreglo multidimensional, donde cada elemento es identificado por dos índices: uno para la fila y otro para la columna.</p></li>
+<li><p><strong>Arreglos de más dimensiones:</strong> Java también soporta arreglos de tres, cuatro o más dimensiones, aunque en la práctica se utilizan menos debido a la complejidad que generan.</p></li>
+</ul>
+</section>
+<section id="tipos-de-arreglos-multidimensionales">
+<h2>Tipos de Arreglos Multidimensionales<a class="headerlink" href="#tipos-de-arreglos-multidimensionales" title="Link to this heading">#</a></h2>
+<section id="arreglo-bidimensional-matriz">
+<h3>Arreglo Bidimensional (Matriz)<a class="headerlink" href="#arreglo-bidimensional-matriz" title="Link to this heading">#</a></h3>
+<p>Un arreglo bidimensional es equivalente a una tabla con <code class="docutils literal notranslate"><span class="pre">m</span></code> filas y <code class="docutils literal notranslate"><span class="pre">n</span></code> columnas. En Java, se declara de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matriz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Matriz de 3 filas y 4 columnas</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">matriz</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span><span class="p">);</span>
+
+<span class="c1">// Implementar alguna de las matrices de la imagen de abajo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Siempre para acceder a un elemento de cualquier arreglo es mediante enteros</p>
+<figure class="align-default" id="figure8-1">
+<a class="reference internal image-reference" href="../images/Figure8.1.png"><img alt="../images/Figure8.1.png" src="../images/Figure8.1.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Inicializar los valores se puede hacer de varias formas que son equivalentes</p>
+<figure class="align-default" id="matriz-equiv">
+<a class="reference internal image-reference" href="../images/matriz_equiv.png"><img alt="../images/matriz_equiv.png" src="../images/matriz_equiv.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#matriz-equiv" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Entonces los arreglos bidimensionales se pueden pensar como un arreglo unidimensional de la siguiente forma:</p>
+<figure class="align-default" id="figure8-2">
+<a class="reference internal image-reference" href="../images/Figure8.2.png"><img alt="../images/Figure8.2.png" src="../images/Figure8.2.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure8-2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Algunos ejemplos:</p>
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Shaxmat.PNG" height=300px>
+<a class="reference internal image-reference" href="https://i.redd.it/0ez2y3ugelz91.jpg"><img alt="https://i.redd.it/0ez2y3ugelz91.jpg" src="https://i.redd.it/0ez2y3ugelz91.jpg" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="https://maderplas.com/wp-content/uploads/2023/12/locker-o-casilleros-plasticos-industriales-2-scaled.jpg"><img alt="https://maderplas.com/wp-content/uploads/2023/12/locker-o-casilleros-plasticos-industriales-2-scaled.jpg" src="https://maderplas.com/wp-content/uploads/2023/12/locker-o-casilleros-plasticos-industriales-2-scaled.jpg" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="https://www.marketingdirecto.com/wp-content/uploads/2017/02/imagen-pixelada.jpg"><img alt="https://www.marketingdirecto.com/wp-content/uploads/2017/02/imagen-pixelada.jpg" src="https://www.marketingdirecto.com/wp-content/uploads/2017/02/imagen-pixelada.jpg" style="height: 300px;" /></a>
+</section>
+<section id="arreglos-de-dimensiones-superiores">
+<h3>Arreglos de Dimensiones Superiores<a class="headerlink" href="#arreglos-de-dimensiones-superiores" title="Link to this heading">#</a></h3>
+<p>Java permite declarar arreglos de más de dos dimensiones. Estos pueden ser vistos como arreglos de arreglos de arreglos, creando así “cubos” o estructuras más complejas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][][]</span><span class="w"> </span><span class="n">cubo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">5</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Arreglo tridimensional de 3x4x5</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">cubo</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunos ejemplos:</p>
+<div align="center">
+  <img src="https://imagenes.eltiempo.com/files/image_1200_600/uploads/2018/08/17/5b771054209cc.jpeg" height=300px>
+<a class="reference internal image-reference" href="https://i.ytimg.com/vi/ZfkP5hqP3HI/maxresdefault.jpg"><img alt="https://i.ytimg.com/vi/ZfkP5hqP3HI/maxresdefault.jpg" src="https://i.ytimg.com/vi/ZfkP5hqP3HI/maxresdefault.jpg" style="height: 300px;" /></a>
+</div></section>
+<section id="arreglos-irregulares-jagged-arrays">
+<h3>Arreglos Irregulares (Jagged Arrays)<a class="headerlink" href="#arreglos-irregulares-jagged-arrays" title="Link to this heading">#</a></h3>
+<p>Java permite crear arreglos donde las filas tienen diferentes tamaños, conocidos como <strong>arreglos irregulares</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">jaggedArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][]</span><span class="p">;</span>
+<span class="n">jaggedArray</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Primera fila con 2 columnas</span>
+<span class="n">jaggedArray</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Segunda fila con 3 columnas</span>
+<span class="n">jaggedArray</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tercera fila con 1 columna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[I@33903de
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="triangular">
+<a class="reference internal image-reference" href="../images/triangular.png"><img alt="../images/triangular.png" src="../images/triangular.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#triangular" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Implementa la matriz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunos ejemplos:</p>
+<div align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/01_khafre_north.jpg/640px-01_khafre_north.jpg" height=300px>
+<a class="reference internal image-reference" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdWoT6w87t7Ql1W2UGwOcpmuJ0PoyGLDPpA&amp;s"><img alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdWoT6w87t7Ql1W2UGwOcpmuJ0PoyGLDPpA&amp;s" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVdWoT6w87t7Ql1W2UGwOcpmuJ0PoyGLDPpA&amp;s" style="height: 300px;" /></a>
+</div></section>
+</section>
+<section id="operaciones-basicas-en-arreglos-multidimensionales">
+<h2>Operaciones Básicas en Arreglos Multidimensionales<a class="headerlink" href="#operaciones-basicas-en-arreglos-multidimensionales" title="Link to this heading">#</a></h2>
+<section id="inicializacion">
+<h3>Inicialización<a class="headerlink" href="#inicializacion" title="Link to this heading">#</a></h3>
+<p>Los arreglos multidimensionales se pueden inicializar explícitamente al declarar los valores dentro de llaves:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matriz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejemplo practico con tablas:</p>
+<figure class="align-default" id="matriz">
+<a class="reference internal image-reference" href="../images/matriz.png"><img alt="../images/matriz.png" src="../images/matriz.png" style="width: 70%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#matriz" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="o">[][]</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">983</span><span class="p">,</span><span class="w"> </span><span class="mi">787</span><span class="p">,</span><span class="w"> </span><span class="mi">714</span><span class="p">,</span><span class="w"> </span><span class="mi">1375</span><span class="p">,</span><span class="w"> </span><span class="mi">967</span><span class="p">,</span><span class="w"> </span><span class="mi">1087</span><span class="p">},</span><span class="w">    </span><span class="c1">// chicago</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">983</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">214</span><span class="p">,</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w"> </span><span class="mi">1763</span><span class="p">,</span><span class="w"> </span><span class="mi">1723</span><span class="p">,</span><span class="w"> </span><span class="mi">1842</span><span class="p">},</span><span class="w">  </span><span class="c1">// boston</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">787</span><span class="p">,</span><span class="w"> </span><span class="mi">214</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">888</span><span class="p">,</span><span class="w"> </span><span class="mi">1549</span><span class="p">,</span><span class="w"> </span><span class="mi">1548</span><span class="p">,</span><span class="w"> </span><span class="mi">1627</span><span class="p">},</span><span class="w">   </span><span class="c1">// New York</span>
+<span class="w">  </span><span class="p">{</span><span class="mi">714</span><span class="p">,</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w"> </span><span class="mi">888</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">661</span><span class="p">,</span><span class="w"> </span><span class="mi">781</span><span class="p">,</span><span class="w"> </span><span class="mi">810</span><span class="p">},</span><span class="w">     </span><span class="c1">// Atlanta</span>
+<span class="w">   </span><span class="c1">// Miami</span>
+<span class="w">     </span><span class="c1">// Dallas</span>
+<span class="w">   </span><span class="c1">// Houston</span>
+<span class="w">  </span><span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="acceso-a-elementos">
+<h3>Acceso a Elementos<a class="headerlink" href="#acceso-a-elementos" title="Link to this heading">#</a></h3>
+<p>Para acceder a un elemento de un arreglo bidimensional, se utilizan dos índices: el primero para la fila y el segundo para la columna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">matriz</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="c1">// Accede al elemento en la fila 2, columna 3 (índice 1,2)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iteracion-sobre-arreglos">
+<h3>Iteración sobre Arreglos<a class="headerlink" href="#iteracion-sobre-arreglos" title="Link to this heading">#</a></h3>
+<p>El recorrido sobre un arreglo bidimensional se realiza mediante bucles anidados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PrintMatrix</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matriz</span><span class="p">){</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">PrintMatrix</span><span class="p">(</span><span class="n">matriz</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="busquedas-en-arreglos-multidimensionales">
+<h2>Búsquedas en Arreglos Multidimensionales<a class="headerlink" href="#busquedas-en-arreglos-multidimensionales" title="Link to this heading">#</a></h2>
+<p>La búsqueda en un arreglo multidimensional implica iterar sobre sus elementos hasta encontrar el valor deseado. Dependiendo de la estructura del arreglo, se pueden realizar búsquedas lineales o usar otros algoritmos.</p>
+<section id="busqueda-lineal">
+<h3>Búsqueda Lineal<a class="headerlink" href="#busqueda-lineal" title="Link to this heading">#</a></h3>
+<p>En la búsqueda lineal, se recorre cada fila y columna hasta encontrar el valor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">buscarElemento</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">matriz</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">matriz</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// Elemento encontrado</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// Elemento no encontrado</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="busqueda-binaria">
+<h3>Búsqueda Binaria<a class="headerlink" href="#busqueda-binaria" title="Link to this heading">#</a></h3>
+<p>La búsqueda binaria puede aplicarse en cada fila de un arreglo bidimensional si está ordenado. Para cada fila, se realiza la búsqueda binaria:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">busquedaBinariaEnFila</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">fila</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">inicio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fila</span><span class="p">.</span><span class="na">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">inicio</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">fin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">medio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inicio</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fin</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fila</span><span class="o">[</span><span class="n">medio</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fila</span><span class="o">[</span><span class="n">medio</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">valor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">inicio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">medio</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">fin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">medio</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aplicaciones-de-arreglos-multidimensionales">
+<h2>Aplicaciones de Arreglos Multidimensionales<a class="headerlink" href="#aplicaciones-de-arreglos-multidimensionales" title="Link to this heading">#</a></h2>
+<p>Los arreglos multidimensionales tienen diversas aplicaciones, entre ellas:</p>
+<ul class="simple">
+<li><p><strong>Imágenes y Gráficos:</strong> Los arreglos bidimensionales son utilizados para representar píxeles en imágenes, donde cada posición en la matriz corresponde a un píxel con su respectivo color o valor.</p></li>
+<li><p><strong>Matrices Matemáticas:</strong> Se utilizan en diversas aplicaciones científicas y de ingeniería para representar y realizar cálculos con matrices.</p></li>
+<li><p><strong>Tablas de Datos:</strong> Los arreglos bidimensionales son útiles para almacenar y gestionar grandes volúmenes de datos organizados en tablas (por ejemplo, hojas de cálculo).</p></li>
+<li><p><strong>Sistemas de Coordenadas:</strong> En simulaciones físicas y videojuegos, los arreglos multidimensionales pueden representar espacios de varias dimensiones, como en un mapa o mundo tridimensional.</p></li>
+</ul>
+</section>
+<section id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>Los arreglos multidimensionales son una estructura de datos fundamental en Java que permiten almacenar y manipular datos organizados en varias dimensiones, como tablas, matrices y cubos. Su versatilidad y facilidad de uso los hacen ideales para aplicaciones donde es necesario representar datos de forma tabular o manejar estructuras complejas, como imágenes, coordenadas espaciales o datos científicos.</p>
+<p>A través de la clase, se ha abordado la creación, manipulación y búsqueda de elementos dentro de estos arreglos, cubriendo tanto arreglos bidimensionales como irregulares. La comprensión de estos conceptos permite a los estudiantes resolver problemas prácticos relacionados con la gestión de datos, optimización de recursos y representación de sistemas reales.</p>
+<p>El taller práctico, que involucra la gestión de horarios de clases, es un ejemplo de cómo los arreglos multidimensionales se pueden aplicar en un contexto real, promoviendo la capacidad de resolver problemas complejos de manera eficiente.</p>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Y. Daniel Liang. “<em>Introduction to Java Programming and Data Structures, Comprehensive Version</em>”. Addison Wesley. Edición 12 (2019).</p></li>
+<li><p>Koffman, Elliot B.; Wolfgang, Paul A. T.”<em>Data structures : abstraction and design using Java</em>”. Wiley. Tercera edición (2016).</p></li>
+<li><p>James T. Streib,Takako Soma. “<em>Guide to Data Structures: A Concise Introduction Using Java</em>”. Springer International Publishing. Primera edición (2017).</p></li>
+<li><p>Deitel, P., &amp; Deitel, H. (2018). <em>Java: How to Program</em> (11th Edition). Pearson.</p></li>
+<li><p>Horstmann, C. S., &amp; Cornell, G. (2012). <em>Core Java Volume I - Fundamentals</em> (9th Edition). Prentice Hall.</p></li>
+<li><p>Oracle Documentation. (n.d.). <em>Arrays in Java</em>. Retrieved from <a class="reference external" href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html">https://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html</a></p></li>
+<li><p>Liang, Y. D. (2014). <em>Introduction to Java Programming and Data Structures</em>. Pearson.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "java"
+        },
+        kernelOptions: {
+            name: "java",
+            path: "./Lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'java'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3.Arrays1D.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Arreglos Unidimensionales</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="5.Nodes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nodos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definicion-de-arreglos-multidimensionales">Definición de Arreglos Multidimensionales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-arreglos-multidimensionales">Tipos de Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglo-bidimensional-matriz">Arreglo Bidimensional (Matriz)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-de-dimensiones-superiores">Arreglos de Dimensiones Superiores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arreglos-irregulares-jagged-arrays">Arreglos Irregulares (Jagged Arrays)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-basicas-en-arreglos-multidimensionales">Operaciones Básicas en Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inicializacion">Inicialización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#acceso-a-elementos">Acceso a Elementos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iteracion-sobre-arreglos">Iteración sobre Arreglos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#busquedas-en-arreglos-multidimensionales">Búsquedas en Arreglos Multidimensionales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-lineal">Búsqueda Lineal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#busqueda-binaria">Búsqueda Binaria</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-de-arreglos-multidimensionales">Aplicaciones de Arreglos Multidimensionales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Aguilera Novoa
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  ETITC
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

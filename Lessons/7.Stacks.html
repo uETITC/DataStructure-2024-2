@@ -1,0 +1,1079 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pilas &#8212; Estructura de Datos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lessons/7.Stacks';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Colas" href="8.Queues.html" />
+    <link rel="prev" title="Iteradores" href="6.Iterators.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logoED.png" class="logo__image only-light" alt="Estructura de Datos - Home"/>
+    <img src="../_static/logoED.png" class="logo__image only-dark pst-js-only" alt="Estructura de Datos - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Estructura de Datos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="1.IntroductionToJava.html">Configuración de Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="1.IntroductionToJava_Solution.html">Primer Taller Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="2.OOP_Fundamentals.html">Introducción a Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="2.OOP_Fundamentals_Solution.html">Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="9.BusesAndProcessors.html">Buses de Comunicaciones y Nuevos Procesadores</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/First/First.html">First Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/V2.html">V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/First/Supletorio.html">Supletorio</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras Lineales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3.Strings.html">Cadenas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="3.Arrays.html">Arreglos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="3.Arrays1D.html">Arreglos Unidimensionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4.MultidimensionalArrays.html">Arreglos de Varias Dimensiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="5.Nodes.html">Nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5.1.LinkedLists.html">Listas Enlazadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Interface.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Generics.html">Genéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6.Iterators.html">Iteradores</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8.Queues.html">Colas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Exams/Second/Second.html">Second Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Exams/Second/V2.html">V2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras No-Lineales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10.Trees.html">Árboles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="11.0.Graphs.html">Grafos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="11.1.UnweightedGraphs.html">Grafos Sin Peso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11.2.WeightedGraphs.html">Grafos Con Peso</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/uETITC/DataStructure-2024-2/blob/main/Lessons/7.Stacks.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2/issues/new?title=Issue%20on%20page%20%2FLessons/7.Stacks.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Lessons/7.Stacks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pilas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos">Objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-pila">¿Qué es una Pila?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-pila-en-la-vida-real">Ejemplo de pila en la vida real</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-operaciones-en-una-pila">Tipos de Operaciones en una Pila</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pilas-en-java">Implementación de Pilas en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-simple">Implementación Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de Uso</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-con-nodos">Implementación con Nodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-de-la-clase-pila">Explicación de la clase <code class="docutils literal notranslate"><span class="pre">Pila</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-aplicaciones">Otras Aplicaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pilas-de-java">Pilas de Java</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libros">Libros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales-y-guias">Tutoriales y Guías</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pilas">
+<h1>Pilas<a class="headerlink" href="#pilas" title="Link to this heading">#</a></h1>
+<section id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>Las pilas son estructuras de datos fundamentales en la programación que siguen el principio de <strong>LIFO</strong> (Last In, First Out), es decir, el último elemento en entrar es el primero en salir. Esto las hace útiles para resolver problemas en los que la última acción realizada debe ser la primera en revertirse, como en la función “deshacer” de los editores de texto o la navegación de un historial de páginas web.</p>
+<p>En esta clase, exploraremos el concepto de pilas, sus operaciones básicas y cómo implementarlas en Java utilizando la clase <code class="docutils literal notranslate"><span class="pre">Stack</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">java.util</span></code> y cómo podemos implementarlas manualmente. Al final de la clase, aplicaremos estos conceptos para resolver un problema práctico.</p>
+<p>Algunos ejemplos de pilas son:</p>
+<figure class="align-default" id="stack1">
+<a class="reference internal image-reference" href="../images/stack1.png"><img alt="../images/stack1.png" src="../images/stack1.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#stack1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="stack2">
+<a class="reference internal image-reference" href="../images/stack2.png"><img alt="../images/stack2.png" src="../images/stack2.png" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#stack2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="pilalibros">
+<a class="reference internal image-reference" href="https://i.etsystatic.com/12707189/r/il/9459c7/3154225373/il_fullxfull.3154225373_kotx.jpg"><img alt="https://i.etsystatic.com/12707189/r/il/9459c7/3154225373/il_fullxfull.3154225373_kotx.jpg" src="https://i.etsystatic.com/12707189/r/il/9459c7/3154225373/il_fullxfull.3154225373_kotx.jpg" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#pilalibros" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/stack-of-dishes-luis-crump.jpg"><img alt="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/stack-of-dishes-luis-crump.jpg" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/stack-of-dishes-luis-crump.jpg" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="piladiscos">
+<a class="reference internal image-reference" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDi7Op6u8PtiAU544zDmXE0ct1dZfj1DQFug&amp;s"><img alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDi7Op6u8PtiAU544zDmXE0ct1dZfj1DQFug&amp;s" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDi7Op6u8PtiAU544zDmXE0ct1dZfj1DQFug&amp;s" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#piladiscos" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="pilatazos">
+<a class="reference internal image-reference" href="https://www.wikihow.com/images_en/thumb/2/2c/Play-Pogs-Step-6.jpg/v4-460px-Play-Pogs-Step-6.jpg.webp"><img alt="https://www.wikihow.com/images_en/thumb/2/2c/Play-Pogs-Step-6.jpg/v4-460px-Play-Pogs-Step-6.jpg.webp" src="https://www.wikihow.com/images_en/thumb/2/2c/Play-Pogs-Step-6.jpg/v4-460px-Play-Pogs-Step-6.jpg.webp" style="width: 80%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#pilatazos" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Esta clase abordará los conceptos de las pilas, su implementación en Java, y ejemplos prácticos que ilustran su uso.</p>
+</section>
+<section id="objetivos">
+<h2>Objetivos<a class="headerlink" href="#objetivos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Comprender el concepto de pilas y su estructura de datos.</p></li>
+<li><p>Implementar y utilizar pilas en Java.</p></li>
+<li><p>Aprender las operaciones básicas de una pila: <code class="docutils literal notranslate"><span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">pop</span></code>, <code class="docutils literal notranslate"><span class="pre">peek</span></code>, <code class="docutils literal notranslate"><span class="pre">isEmpty</span></code>.</p></li>
+<li><p>Aplicar pilas en problemas comunes de programación.</p></li>
+<li><p>Desarrollar una implementación manual de una pila.</p></li>
+</ul>
+</section>
+<section id="que-es-una-pila">
+<h2>¿Qué es una Pila?<a class="headerlink" href="#que-es-una-pila" title="Link to this heading">#</a></h2>
+<p>Una pila es una estructura de datos abstracta que permite almacenar y recuperar elementos de manera organizada. En una pila, las operaciones de inserción y eliminación se realizan únicamente en la parte superior. Las principales operaciones de una pila son:</p>
+<ol class="arabic simple">
+<li><p><strong>push(elemento)</strong>: Inserta un nuevo elemento en la parte superior de la pila.</p></li>
+<li><p><strong>pop()</strong>: Elimina y devuelve el elemento en la parte superior de la pila.</p></li>
+<li><p><strong>peek()</strong>: Devuelve el elemento en la parte superior de la pila sin eliminarlo.</p></li>
+<li><p><strong>isEmpty()</strong>: Verifica si la pila está vacía.</p></li>
+</ol>
+<section id="ejemplo-de-pila-en-la-vida-real">
+<h3>Ejemplo de pila en la vida real<a class="headerlink" href="#ejemplo-de-pila-en-la-vida-real" title="Link to this heading">#</a></h3>
+<p>Imagina una pila de platos. El último plato que se apila será el primero en retirarse, siguiendo el principio LIFO.</p>
+</section>
+</section>
+<section id="tipos-de-operaciones-en-una-pila">
+<h2>Tipos de Operaciones en una Pila<a class="headerlink" href="#tipos-de-operaciones-en-una-pila" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>push</strong>: Agrega un elemento a la pila.</p></li>
+<li><p><strong>pop</strong>: Remueve el elemento en la parte superior de la pila.</p></li>
+<li><p><strong>peek</strong>: Obtiene el valor en la parte superior sin removerlo.</p></li>
+<li><p><strong>isEmpty</strong>: Comprueba si la pila está vacía.</p></li>
+</ul>
+</section>
+<section id="implementacion-de-pilas-en-java">
+<h2>Implementación de Pilas en Java<a class="headerlink" href="#implementacion-de-pilas-en-java" title="Link to this heading">#</a></h2>
+<section id="implementacion-simple">
+<h3>Implementación Simple<a class="headerlink" href="#implementacion-simple" title="Link to this heading">#</a></h3>
+<p>A continuación, se presenta una implementación simple de una pila utilizando una clase genérica en Java.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Clase PilaGenérica</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PilaGenerica</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">capacidad</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// Constructor</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">PilaGenerica</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tamaño</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">capacidad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tamaño</span><span class="p">;</span>
+<span class="w">      </span><span class="n">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="o">[</span><span class="n">capacidad</span><span class="o">]</span><span class="p">;</span>
+<span class="w">      </span><span class="n">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para agregar un elemento a la pila</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">elemento</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">cima</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">capacidad</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;La pila está llena. No se puede agregar el elemento.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">elementos</span><span class="o">[++</span><span class="n">cima</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">elemento</span><span class="p">;</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Elemento &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">elemento</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; agregado a la pila.&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para retirar un elemento de la pila</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;La pila está vacía. No se puede retirar ningún elemento.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">cima</span><span class="o">--]</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para obtener el elemento en la cima de la pila sin retirarlo</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;La pila está vacía. No hay elementos en la cima.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="n">elementos</span><span class="o">[</span><span class="n">cima</span><span class="o">]</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para verificar si la pila está vacía</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para obtener el tamaño de la pila</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Edita y prueba el código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agrega tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ejemplo-de-uso">
+<h4>Ejemplo de Uso<a class="headerlink" href="#ejemplo-de-uso" title="Link to this heading">#</a></h4>
+<p>A continuación, se presenta un ejemplo de cómo utilizar la clase <code class="docutils literal notranslate"><span class="pre">PilaGenerica</span></code> para almacenar y manejar una pila de enteros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Clase Principal para probar la pila</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Principal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">PilaGenerica</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pila</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PilaGenerica</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Agregar elementos a la pila</span>
+<span class="w">      </span><span class="n">pila</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">      </span><span class="n">pila</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="w">      </span><span class="n">pila</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Mostrar el elemento en la cima</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Elemento en la cima: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pila</span><span class="p">.</span><span class="na">peek</span><span class="p">());</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Retirar un elemento</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Elemento retirado: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pila</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Mostrar el tamaño de la pila</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Tamaño de la pila: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pila</span><span class="p">.</span><span class="na">size</span><span class="p">());</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Retirar todos los elementos</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">pila</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Elemento retirado: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">pila</span><span class="p">.</span><span class="na">pop</span><span class="p">());</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c1">// Intentar retirar un elemento de una pila vacía</span>
+<span class="w">      </span><span class="n">pila</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Edita y prueba el código</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agrega tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Implementemos la clase del libro guía:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GenericStack</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getSize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">E</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">E</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">list</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">getSize</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;stack: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Crea una clase llamada <code class="docutils literal notranslate"><span class="pre">TestStack</span></code> que cree dos pilas con diferente tipo de elementos, agrega unos archivos, imprime la lista, y elimina elementos de esta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agrega tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>¿Qué diferencia hay entre esta clase y la primera?</strong></p>
+</section>
+</section>
+<section id="implementacion-con-nodos">
+<h3>Implementación con Nodos<a class="headerlink" href="#implementacion-con-nodos" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Clase Nodo que contiene el dato y una referencia al siguiente nodo</span>
+<span class="kd">class</span> <span class="nc">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span><span class="w">        </span><span class="c1">// Dato que almacenará el nodo</span>
+<span class="w">  </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">siguiente</span><span class="p">;</span><span class="w">  </span><span class="c1">// Referencia al siguiente nodo en la pila</span>
+
+<span class="w">  </span><span class="c1">// Constructor</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Nodo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">dato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">siguiente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase Pila que utiliza nodos</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pila</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span><span class="w">  </span><span class="c1">// Referencia al nodo que está en la cima de la pila</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tamanio</span><span class="p">;</span><span class="w">   </span><span class="c1">// Variable para llevar el tamaño de la pila</span>
+
+<span class="w">  </span><span class="c1">// Constructor: Inicializa la pila vacía</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Pila</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// La pila comienza vacía, por lo que la cima es nula</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">tamanio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Tamaño de la pila es 0</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para agregar un elemento a la pila (Push)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nuevoNodo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Nodo</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">dato</span><span class="p">);</span><span class="w">  </span><span class="c1">// Crear un nuevo nodo con el dato</span>
+<span class="w">      </span><span class="n">nuevoNodo</span><span class="p">.</span><span class="na">siguiente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span><span class="w">  </span><span class="c1">// El siguiente nodo del nuevo es el que era la cima</span>
+<span class="w">      </span><span class="n">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nuevoNodo</span><span class="p">;</span><span class="w">  </span><span class="c1">// Actualizamos la cima para que sea el nuevo nodo</span>
+<span class="w">      </span><span class="n">tamanio</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// Incrementamos el tamaño de la pila</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para remover y devolver el elemento en la cima de la pila (Pop)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error: La pila está vacía.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve null si la pila está vacía</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Obtener el dato del nodo en la cima</span>
+<span class="w">      </span><span class="n">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">siguiente</span><span class="p">;</span><span class="w">  </span><span class="c1">// Mover la cima al siguiente nodo</span>
+<span class="w">      </span><span class="n">tamanio</span><span class="o">--</span><span class="p">;</span><span class="w">  </span><span class="c1">// Reducimos el tamaño de la pila</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devolvemos el dato del nodo removido</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para ver el elemento en la cima sin removerlo (Peek)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error: La pila está vacía.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve null si la pila está vacía</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve el dato del nodo en la cima</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para verificar si la pila está vacía</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Si la cima es null, entonces la pila está vacía</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método que devuelve el tamaño actual de la pila</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">tamanio</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve el número de elementos en la pila</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para imprimir el contenido de la pila</span>
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;La pila está vacía.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">actual</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">actual</span><span class="p">.</span><span class="na">dato</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actual</span><span class="p">.</span><span class="na">siguiente</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="explicacion-de-la-clase-pila">
+<h4>Explicación de la clase <code class="docutils literal notranslate"><span class="pre">Pila</span></code><a class="headerlink" href="#explicacion-de-la-clase-pila" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Atributos:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cima</span></code>: Referencia al nodo en la parte superior de la pila.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tamanio</span></code>: Contador del número de elementos en la pila.</p></li>
+</ul>
+</li>
+<li><p><strong>Métodos:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">push(T</span> <span class="pre">dato)</span></code>: Añade un nuevo elemento a la cima de la pila.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pop()</span></code>: Elimina y devuelve el elemento en la cima de la pila. Si la pila está vacía, se muestra un mensaje de error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peek()</span></code>: Devuelve el elemento en la cima sin eliminarlo. También muestra un mensaje de error si la pila está vacía.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isEmpty()</span></code>: Devuelve <code class="docutils literal notranslate"><span class="pre">true</span></code> si la pila está vacía, y <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso contrario.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">size()</span></code>: Devuelve el número de elementos en la pila.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toString()</span></code>: Recorre la pila y crea una representación en cadena de sus elementos.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ejemplo">
+<h4>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Aquí el código de prueba</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="aplicaciones">
+<h2>Aplicaciones<a class="headerlink" href="#aplicaciones" title="Link to this heading">#</a></h2>
+<p>Las pilas tienen diversas aplicaciones en la programación, algunas de las más comunes son:</p>
+<ol class="arabic simple">
+<li><p><strong>Deshacer y Rehacer</strong>: Las aplicaciones que permiten “deshacer” (undo) y “rehacer” (redo) utilizan pilas para almacenar las acciones del usuario.</p></li>
+<li><p><strong>Evaluación de expresiones aritméticas</strong>: Al evaluar expresiones aritméticas o convertir notaciones infijas a postfijas, las pilas se utilizan para gestionar los operadores y operandos.</p></li>
+<li><p><strong>Recorrido en profundidad</strong>: En el recorrido de estructuras como árboles o grafos, se puede utilizar una pila para implementar la búsqueda en profundidad (DFS).</p></li>
+<li><p><strong>Comprobación de paréntesis balanceados</strong>: Al analizar expresiones, se utiliza una pila para verificar si los paréntesis están correctamente balanceados.</p></li>
+</ol>
+<section id="otras-aplicaciones">
+<h3>Otras Aplicaciones<a class="headerlink" href="#otras-aplicaciones" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Reversa de cadenas.</p></li>
+<li><p>Palíndromes.</p></li>
+<li><p>Historial de navegación en navegadores web.</p></li>
+<li><p>Evaluación de programas en lenguajes de programación.</p></li>
+<li><p>Conversión de expresiones.</p></li>
+<li><p>Resolución de laberintos.</p></li>
+<li><p>Gestión de la memoria.</p></li>
+<li><p>Recursividad.</p></li>
+<li><p>Seguimiento de llamadas a funciones.</p></li>
+<li><p>Servicio de interrupciones de hardware.</p></li>
+<li><p>Resolución de problemas combinatorios mediante backtracking.</p></li>
+</ul>
+</section>
+</section>
+<section id="pilas-de-java">
+<h2>Pilas de Java<a class="headerlink" href="#pilas-de-java" title="Link to this heading">#</a></h2>
+<p>Ahora revisemos una implementación más completa y robusta para una pila. Para ello, utilizaremos la clase de vector:</p>
+<figure class="align-default" id="figure20-10">
+<a class="reference internal image-reference" href="../images/Figure20.10.png"><img alt="../images/Figure20.10.png" src="../images/Figure20.10.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure20-10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Con esta clase en mente, ahora definiremos las pilas heredando algunos métodos y atributos de la clase <code class="docutils literal notranslate"><span class="pre">Vector</span></code>.</p>
+<figure class="align-default" id="figure20-11">
+<a class="reference internal image-reference" href="../images/Figure20.11.png"><img alt="../images/Figure20.11.png" src="../images/Figure20.11.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#figure20-11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ahora, implementa un código que pruebe la clase pilas que viene con java, <a class="reference external" href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/Stack.java">Stack.java</a>. Creen dos pilas con diferentes tipos de objetos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Agrega tu código aquí</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h2>
+<p>Las pilas son una estructura de datos fundamental que permite resolver problemas en los que el último elemento en agregarse es el primero en ser procesado. Al comprender su funcionamiento, podemos aplicarlas en la solución de diversos problemas que involucran la reversión de acciones, la evaluación de expresiones y el manejo de recursividad. En Java, la clase <code class="docutils literal notranslate"><span class="pre">Stack</span></code> del paquete <code class="docutils literal notranslate"><span class="pre">java.util</span></code> simplifica su implementación, pero también es importante entender cómo implementar pilas manualmente para aprender sobre la gestión de memoria y el control de datos en estructuras más complejas.</p>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<section id="libros">
+<h3>Libros<a class="headerlink" href="#libros" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Y. Daniel Liang. “<em>Introduction to Java Programming and Data Structures, Comprehensive Version</em>”. Addison Wesley. Edición 12 (2019).</p></li>
+<li><p>Koffman, Elliot B.; Wolfgang, Paul A. T.”<em>Data structures : abstraction and design using Java</em>”. Wiley. Tercera edición (2016).</p></li>
+</ul>
+</section>
+<section id="tutoriales-y-guias">
+<h3>Tutoriales y Guías<a class="headerlink" href="#tutoriales-y-guias" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.baeldung.com/java-stack">Quick Guide to the Java Stack - Baeldung</a></p></li>
+<li><p><a class="reference external" href="https://codegym.cc/groups/posts/java-stack">Java Stack - CodeGym</a></p></li>
+<li><p><a class="reference external" href="https://www.javatpoint.com/java-stack">Java Stack - Javatpoint</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.princeton.edu/courses/archive/fall14/cos126/lectures/14-StacksQueues-2x2.pdf">14. Stacks and Queues</a></p></li>
+<li><p><a class="reference external" href="https://courses.cs.washington.edu/courses/cse373/19su/files/lectures/slides/lecture02.pdf">Lecture 2: Stacks and Queues</a></p></li>
+</ul>
+</section>
+<section id="videos">
+<h3>Videos<a class="headerlink" href="#videos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=13uQ8dgqbno">Java Stack </a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=1IxIZ9qXEgw">Tutorial de Pilas (Stacks) en Java </a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "java"
+        },
+        kernelOptions: {
+            name: "java",
+            path: "./Lessons"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'java'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="6.Iterators.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Iteradores</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="8.Queues.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Colas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos">Objetivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-es-una-pila">¿Qué es una Pila?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-pila-en-la-vida-real">Ejemplo de pila en la vida real</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-operaciones-en-una-pila">Tipos de Operaciones en una Pila</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-de-pilas-en-java">Implementación de Pilas en Java</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-simple">Implementación Simple</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de Uso</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementacion-con-nodos">Implementación con Nodos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#explicacion-de-la-clase-pila">Explicación de la clase <code class="docutils literal notranslate"><span class="pre">Pila</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones">Aplicaciones</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#otras-aplicaciones">Otras Aplicaciones</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pilas-de-java">Pilas de Java</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusiones">Conclusiones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libros">Libros</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tutoriales-y-guias">Tutoriales y Guías</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#videos">Videos</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Aguilera Novoa
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  ETITC
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

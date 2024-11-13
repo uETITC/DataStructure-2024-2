@@ -1,0 +1,1102 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>V1 &#8212; Estructura de Datos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lessons/Exams/Second/V1';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="V2" href="V2.html" />
+    <link rel="prev" title="Second Exam" href="Second.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logoED.png" class="logo__image only-light" alt="Estructura de Datos - Home"/>
+    <img src="../../../_static/logoED.png" class="logo__image only-dark pst-js-only" alt="Estructura de Datos - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../README.html">
+                    Estructura de Datos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../1.IntroductionToJava.html">Configuración de Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../1.IntroductionToJava_Solution.html">Primer Taller Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../2.OOP_Fundamentals.html">Introducción a Java</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../2.OOP_Fundamentals_Solution.html">Solución</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../9.BusesAndProcessors.html">Buses de Comunicaciones y Nuevos Procesadores</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../First/First.html">First Exam</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../First/V1.html">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../First/V2.html">V2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../First/Supletorio.html">Supletorio</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras Lineales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../3.Strings.html">Cadenas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../3.Arrays.html">Arreglos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../3.Arrays1D.html">Arreglos Unidimensionales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../4.MultidimensionalArrays.html">Arreglos de Varias Dimensiones</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5.Nodes.html">Nodos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../5.1.LinkedLists.html">Listas Enlazadas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6.Interface.html">Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6.Generics.html">Genéricos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../6.Iterators.html">Iteradores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../7.Stacks.html">Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../8.Queues.html">Colas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Second.html">Second Exam</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">V1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="V2.html">V2</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Estructuras No-Lineales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../10.Trees.html">Árboles</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../11.0.Graphs.html">Grafos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../11.1.UnweightedGraphs.html">Grafos Sin Peso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../11.2.WeightedGraphs.html">Grafos Con Peso</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/uETITC/DataStructure-2024-2/blob/main/Lessons/Exams/Second/V1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/uETITC/DataStructure-2024-2/issues/new?title=Issue%20on%20page%20%2FLessons/Exams/Second/V1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Lessons/Exams/Second/V1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>V1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-1-gestion-de-tareas-en-un-sistema">Problema 1: Gestión de Tareas en un Sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-2-registro-de-llamadas-en-un-centro-de-atencion">Problema 2: Registro de Llamadas en un Centro de Atención</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-adicionales">Consideraciones Adicionales:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="v1">
+<h1>V1<a class="headerlink" href="#v1" title="Link to this heading">#</a></h1>
+<section id="problema-1-gestion-de-tareas-en-un-sistema">
+<h2>Problema 1: Gestión de Tareas en un Sistema<a class="headerlink" href="#problema-1-gestion-de-tareas-en-un-sistema" title="Link to this heading">#</a></h2>
+<p>Un sistema de gestión de tareas permite a los usuarios añadir tareas a una estructura de datos para ser ejecutadas en orden inverso en que fueron recibidas. Las tareas pueden ser de diferentes tipos y, en ciertos casos, pueden requerir atención inmediata.</p>
+<p>Las tareas son guardadas no como <code class="docutils literal notranslate"><span class="pre">Strings</span></code> sino como objetos de la clase <code class="docutils literal notranslate"><span class="pre">Tareas</span></code> que contienen el nombre de la tarea, el tiempo de duración, la persona que la va a ejecutar, y el costo de cada una.</p>
+<p><strong>Acciones:</strong></p>
+<ol class="arabic simple">
+<li><p>Se añaden las siguientes tareas a la estructura de datos, en este orden:</p>
+<ul class="simple">
+<li><p>Tarea 1: Imprimir documentos</p></li>
+<li><p>Tarea 2: Enviar correos electrónicos</p></li>
+<li><p>Tarea 3: Compilar informes</p></li>
+</ul>
+</li>
+<li><p>Luego, se recibe una tarea urgente:</p>
+<ul class="simple">
+<li><p>Tarea 4: Procesar una solicitud de emergencia</p></li>
+</ul>
+</li>
+<li><p>El sistema ejecuta la primera tarea en la estructura de datos.</p></li>
+<li><p>A continuación, llegan dos tareas más:</p>
+<ul class="simple">
+<li><p>Tarea 5: Actualizar la base de datos</p></li>
+<li><p>Tarea 6: Realizar copias de seguridad</p></li>
+</ul>
+</li>
+<li><p>Después, se recibe otra tarea urgente:</p>
+<ul class="simple">
+<li><p>Tarea 7: Responder a un cliente importante</p></li>
+</ul>
+</li>
+<li><p>Finalmente, se ejecutan tres tareas más de la estructura de datos.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// Clase Nodo que contiene el dato y una referencia al siguiente nodo</span>
+<span class="kd">class</span> <span class="nc">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span><span class="w">        </span><span class="c1">// Dato que almacenará el nodo</span>
+<span class="w">  </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">siguiente</span><span class="p">;</span><span class="w">  </span><span class="c1">// Referencia al siguiente nodo en la pila</span>
+
+<span class="w">  </span><span class="c1">// Constructor</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Nodo</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">dato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">siguiente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase Pila que utiliza nodos</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Pila</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span><span class="w">  </span><span class="c1">// Referencia al nodo que está en la cima de la pila</span>
+<span class="w">  </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">tamanio</span><span class="p">;</span><span class="w">   </span><span class="c1">// Variable para llevar el tamaño de la pila</span>
+
+<span class="w">  </span><span class="c1">// Constructor: Inicializa la pila vacía</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Pila</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// La pila comienza vacía, por lo que la cima es nula</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="na">tamanio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Tamaño de la pila es 0</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para agregar un elemento a la pila (Push)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nuevoNodo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Nodo</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">dato</span><span class="p">);</span><span class="w">  </span><span class="c1">// Crear un nuevo nodo con el dato</span>
+<span class="w">      </span><span class="n">nuevoNodo</span><span class="p">.</span><span class="na">siguiente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span><span class="w">  </span><span class="c1">// El siguiente nodo del nuevo es el que era la cima</span>
+<span class="w">      </span><span class="n">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nuevoNodo</span><span class="p">;</span><span class="w">  </span><span class="c1">// Actualizamos la cima para que sea el nuevo nodo</span>
+<span class="w">      </span><span class="n">tamanio</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// Incrementamos el tamaño de la pila</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para remover y devolver el elemento en la cima de la pila (Pop)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error: La pila está vacía.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve null si la pila está vacía</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="n">dato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Obtener el dato del nodo en la cima</span>
+<span class="w">      </span><span class="n">cima</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">siguiente</span><span class="p">;</span><span class="w">  </span><span class="c1">// Mover la cima al siguiente nodo</span>
+<span class="w">      </span><span class="n">tamanio</span><span class="o">--</span><span class="p">;</span><span class="w">  </span><span class="c1">// Reducimos el tamaño de la pila</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devolvemos el dato del nodo removido</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para ver el elemento en la cima sin removerlo (Peek)</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Error: La pila está vacía.&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve null si la pila está vacía</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="p">.</span><span class="na">dato</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve el dato del nodo en la cima</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para verificar si la pila está vacía</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">cima</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  </span><span class="c1">// Si la cima es null, entonces la pila está vacía</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método que devuelve el tamaño actual de la pila</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">tamanio</span><span class="p">;</span><span class="w">  </span><span class="c1">// Devuelve el número de elementos en la pila</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Método para imprimir el contenido de la pila</span>
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;La pila está vacía.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">sb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Nodo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cima</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">actual</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">sb</span><span class="p">.</span><span class="na">append</span><span class="p">(</span><span class="n">actual</span><span class="p">.</span><span class="na">dato</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">actual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">actual</span><span class="p">.</span><span class="na">siguiente</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">sb</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tarea</span><span class="p">{</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">duracion</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">persona_encargada</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">costo</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Tarea</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">duracion</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">persona_encargada</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">costo</span><span class="p">){</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">duracion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">duracion</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">persona_encargada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">persona_encargada</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">costo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">costo</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;  Nombre: %s, Duración: %f hora, Persona encargada: %s, Costo: %.1f&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span><span class="w"> </span><span class="n">duracion</span><span class="p">,</span><span class="w"> </span><span class="n">persona_encargada</span><span class="p">,</span><span class="w"> </span><span class="n">costo</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PrimerPunto</span><span class="p">{</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+<span class="w">    </span><span class="n">Pila</span><span class="o">&lt;</span><span class="n">Tarea</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tareas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pila</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// 1</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Imprimir documentos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Enviar correos electrónicos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Compilar informes&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 1:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 2</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Procesar una solicitud de emergencia&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 2:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 3</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 3:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 4</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Actualizar la base de datos&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Realizar copias de seguridad&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 4:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// 5</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">push</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Tarea</span><span class="p">(</span><span class="s">&quot;Responder a un cliente importante&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Sebastian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">120000.5</span><span class="p">));</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 5:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 6</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">tareas</span><span class="p">.</span><span class="na">pop</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 6:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Final del punto:\n&quot;</span><span class="o">+</span><span class="n">tareas</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">new</span><span class="w"> </span><span class="n">PrimerPunto</span><span class="p">().</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 1:
+  Nombre: Compilar informes, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Enviar correos electrónicos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 2:
+  Nombre: Compilar informes, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Enviar correos electrónicos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 3:
+  Nombre: Enviar correos electrónicos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 4:
+  Nombre: Realizar copias de seguridad, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Actualizar la base de datos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Enviar correos electrónicos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 5:
+  Nombre: Realizar copias de seguridad, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Actualizar la base de datos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Enviar correos electrónicos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 6:
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final del punto:
+  Nombre: Imprimir documentos, Duración: 1.000000 hora, Persona encargada: Sebastian, Costo: 120000.5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Preguntas:</strong></p>
+<ul>
+<li><p>¿Qué estructura de datos usarías para gestionar las tareas y cómo manejarías la llegada de tareas urgentes?</p>
+<p><strong>RTA:</strong> Como las tareas deben ser ejecutadas en orden inverso a como fueron recibidas, la estructura de datos apropiada es una pila. El manejo de las tareas urgentes es sencillo con esta estructura de datos, como es urgente apenas llega debe ser ejecutada.</p>
+</li>
+<li><p>Explica el proceso que seguirías para ejecutar las tareas en el orden adecuado utilizando una cola. ¿Cómo manejarías la atención de las tareas urgentes sin alterar el orden de la cola de tareas regulares?</p>
+<p><strong>RTA:</strong> Utilizando una cola seria tedioso y nada optimo para manejar las tareas en el orden inverso a como van llegando, puesto que las colas cumplen que son FIFO. Esto se podría solucionar invirtiendo la cola de orden para sacar elementos y retornarla a su estado original. Respecto a las tareas urgentes, estas se podrían manejar utilizando una cola circular o una cola doble, donde se pueden ingresar y sacar elementos de ambos la dos de la cola; otra opción sería crear dos colas, donde la segunda cola, la nueva, funcionaria para agregar la tarea urgente al inicio de la cola.</p>
+</li>
+<li><p>¿La estructura de datos queda vacía?</p>
+<p><strong>RTA:</strong> No, solo queda un tarea que fue la primera que se apilo.</p>
+</li>
+</ul>
+</section>
+<section id="problema-2-registro-de-llamadas-en-un-centro-de-atencion">
+<h2>Problema 2: Registro de Llamadas en un Centro de Atención<a class="headerlink" href="#problema-2-registro-de-llamadas-en-un-centro-de-atencion" title="Link to this heading">#</a></h2>
+<p>Un centro de atención telefónica gestiona las llamadas de los clientes, registrando la información relevante sobre cada llamada. Las llamadas son atendidas en el orden en que llegan.</p>
+<p>Las llamadas son guardadas no como <code class="docutils literal notranslate"><span class="pre">Strings</span></code> sino como objetos de la clase <code class="docutils literal notranslate"><span class="pre">Llamadas</span></code> que contienen el número de la llamada, nombre del cliente, motivo de la llamada, número de donde se llama, y genero del cliente.</p>
+<p><strong>Acciones:</strong></p>
+<ol class="arabic simple">
+<li><p>Las siguientes llamadas llegan al centro en este orden:</p>
+<ul class="simple">
+<li><p>Llamada 1: Cliente A, consulta sobre una factura</p></li>
+<li><p>Llamada 2: Cliente B, problema técnico</p></li>
+<li><p>Llamada 3: Cliente C, solicitud de reembolso</p></li>
+</ul>
+</li>
+<li><p>Luego llega una llamada, pero otra llamada ya se ha atendido:</p>
+<ul class="simple">
+<li><p>Llamada 4: Cliente D, problema crítico con el servicio</p></li>
+</ul>
+</li>
+<li><p>Se atiende a dos llamadas.</p></li>
+<li><p>A continuación, llegan dos llamadas más:</p>
+<ul class="simple">
+<li><p>Llamada 5: Cliente E, consulta general</p></li>
+<li><p>Llamada 6: Cliente F, pregunta sobre un producto</p></li>
+</ul>
+</li>
+<li><p>Se recibe otra llamada, pero antes se atienden 2:</p>
+<ul class="simple">
+<li><p>Llamada 7: Cliente G, fallo del sistema</p></li>
+</ul>
+</li>
+<li><p>Finalmente, se atienden dos llamadas más.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Collection</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Iterator</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.LinkedList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.NoSuchElementException</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Queue</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Fila</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">elementos</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Fila</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">elementos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span><span class="c1">// Agrega un elemento al final de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">offer</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span><span class="c1">// Similar a add, pero no lanza una excepción si falla</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">remove</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elementos</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">(</span><span class="s">&quot;La cola está vacía&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">removeFirst</span><span class="p">();</span><span class="w">  </span><span class="c1">// Remueve el primer elemento de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">poll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">removeFirst</span><span class="p">();</span><span class="w">  </span><span class="c1">// Devuelve y remueve el primer elemento o null si está vacía</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">element</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">elementos</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NoSuchElementException</span><span class="p">(</span><span class="s">&quot;La cola está vacía&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">getFirst</span><span class="p">();</span><span class="w">  </span><span class="c1">// Devuelve el primer elemento sin removerlo</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">peek</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">getFirst</span><span class="p">();</span><span class="w">  </span><span class="c1">// Devuelve el primer elemento o null si está vacía</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">size</span><span class="p">();</span><span class="w">  </span><span class="c1">// Devuelve el tamaño de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">();</span><span class="w">  </span><span class="c1">// Verifica si la cola está vacía</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">contains</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w">  </span><span class="c1">// Verifica si la cola contiene el elemento</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">iterator</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span><span class="w">  </span><span class="c1">// Devuelve un iterador para recorrer los elementos de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Object</span><span class="o">[]</span><span class="w"> </span><span class="nf">toArray</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">toArray</span><span class="p">();</span><span class="w">  </span><span class="c1">// Convierte la cola a un array de objetos</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="n">U</span><span class="o">[]</span><span class="w"> </span><span class="nf">toArray</span><span class="p">(</span><span class="n">U</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">toArray</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// Convierte la cola a un array de un tipo específico</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w">  </span><span class="c1">// Remueve un objeto de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">containsAll</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">containsAll</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">  </span><span class="c1">// Verifica si la cola contiene todos los elementos de la colección dada</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">addAll</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">addAll</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">  </span><span class="c1">// Agrega todos los elementos de la colección dada a la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">removeAll</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">removeAll</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">  </span><span class="c1">// Remueve todos los elementos de la colección dada de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">retainAll</span><span class="p">(</span><span class="n">Collection</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">retainAll</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">  </span><span class="c1">// Retiene solo los elementos presentes en la colección dada</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clear</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">elementos</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">  </span><span class="c1">// Limpia todos los elementos de la cola</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">elementos</span><span class="p">.</span><span class="na">toString</span><span class="p">();</span><span class="w">  </span><span class="c1">// Convierte la lista de elementos a una cadena y la devuelve</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Llamada</span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">numero_llamada</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">nombre_cliente</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">motivo</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">telefono</span><span class="p">;</span>
+<span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="n">genero_cliente</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="nf">Llamada</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numero_llamada</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">nombre_cliente</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">motivo</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">telefono</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">genero_cliente</span><span class="p">){</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">numero_llamada</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">numero_llamada</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">nombre_cliente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombre_cliente</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">motivo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">motivo</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">telefono</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">telefono</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="na">genero_cliente</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genero_cliente</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nd">@Override</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;\n  Número de la llamada: %d, Nombre del cliente: %s, Motivo: %sm Teléfono: %d, Genero: %s.&quot;</span><span class="p">.</span><span class="na">formatted</span><span class="p">(</span><span class="n">numero_llamada</span><span class="p">,</span><span class="w"> </span><span class="n">nombre_cliente</span><span class="p">,</span><span class="w"> </span><span class="n">motivo</span><span class="p">,</span><span class="w"> </span><span class="n">telefono</span><span class="p">,</span><span class="w"> </span><span class="n">genero_cliente</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">SegundoPunto</span><span class="p">{</span>
+<span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span>
+<span class="w">    </span><span class="n">Fila</span><span class="o">&lt;</span><span class="n">Llamada</span><span class="o">&gt;</span><span class="w"> </span><span class="n">llamadas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Fila</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// 1</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Consulta sobre una factura&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Problema técnico&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Solicitud de reembolso&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 1: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 2</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Problema crítico con el servicio&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 2: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 3</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 3: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c1">// 4</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Consulta general&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pregunta sobre un producto&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 4: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 5 </span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">offer</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Llamada</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cliente G&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fallo del sistema&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3195140529L</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Masculino&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 5: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// 6</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">llamadas</span><span class="p">.</span><span class="na">poll</span><span class="p">();</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Punto 6: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\nFinal del problema: &quot;</span><span class="o">+</span><span class="n">llamadas</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span><span class="w"> </span><span class="n">SegundoPunto</span><span class="p">().</span><span class="na">main</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 1: [
+  Número de la llamada: 1, Nombre del cliente: Cliente A, Motivo: Consulta sobre una facturam Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 2, Nombre del cliente: Cliente B, Motivo: Problema técnicom Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 3, Nombre del cliente: Cliente C, Motivo: Solicitud de reembolsom Teléfono: 3195140529, Genero: Masculino.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 2: [
+  Número de la llamada: 2, Nombre del cliente: Cliente B, Motivo: Problema técnicom Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 3, Nombre del cliente: Cliente C, Motivo: Solicitud de reembolsom Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 4, Nombre del cliente: Cliente D, Motivo: Problema crítico con el serviciom Teléfono: 3195140529, Genero: Masculino.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 3: [
+  Número de la llamada: 4, Nombre del cliente: Cliente D, Motivo: Problema crítico con el serviciom Teléfono: 3195140529, Genero: Masculino.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 4: [
+  Número de la llamada: 4, Nombre del cliente: Cliente D, Motivo: Problema crítico con el serviciom Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 5, Nombre del cliente: Cliente E, Motivo: Consulta generalm Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 6, Nombre del cliente: Cliente F, Motivo: Pregunta sobre un productom Teléfono: 3195140529, Genero: Masculino.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 5: [
+  Número de la llamada: 6, Nombre del cliente: Cliente F, Motivo: Pregunta sobre un productom Teléfono: 3195140529, Genero: Masculino., 
+  Número de la llamada: 7, Nombre del cliente: Cliente G, Motivo: Fallo del sistemam Teléfono: 3195140529, Genero: Masculino.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Punto 6: []
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final del problema: []
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Preguntas:</strong></p>
+<ul>
+<li><p>¿Qué estructura de datos usarías para gestionar las llamadas y cómo manejarías la llegada de llamadas urgentes?</p>
+<p><strong>RTA:</strong> Dado que las llamadas se despachan en el orden que salen, la estructura de datos apropiada es una fila/cola. Para manejar las llamadas urgentes con alta prioridad se deberían colocar al inicio de la cola, esto se puede hacer de dos formas: creando una segunda pila donde el primer dato sea la llamada urgente, o utilizando una cola doble (aquellas a las que se les puede ingresar por delante o detrás).</p>
+</li>
+<li><p>Describe cómo garantizarías que las llamadas se atiendan en el orden correcto utilizando una estructura de datos para las llamadas.</p>
+<p><strong>RTA:</strong> utilizando el concepto de FIFO, inherente a las colas, las llamadas se atenderían en el mismo orden en que llegan.</p>
+</li>
+<li><p>Si existiesen llamadas de emergencia, ¿Cómo se podrían gestionar estos tipos de usuarios?</p>
+<p><strong>RTA:</strong> Para manejar las llamadas urgentes con alta prioridad se deberían colocar al inicio de la cola, esto se puede hacer de dos formas: creando una segunda pila donde el primer dato sea la llamada urgente, o utilizando una cola doble (aquellas a las que se les puede ingresar por delante o detrás).</p>
+</li>
+</ul>
+</section>
+<section id="consideraciones-adicionales">
+<h2>Consideraciones Adicionales:<a class="headerlink" href="#consideraciones-adicionales" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Problema 1 (Gestión de Tareas):</strong> Detalla cómo se añaden y ejecutan las tareas en la estructura de datos, y cómo se manejan las tareas urgentes para asegurar que sean atendidas sin afectar el flujo de trabajo general.</p></li>
+<li><p><strong>Problema 2 (Registro de Llamadas):</strong> Analiza cómo las llamadas se registran en la estructura de datos y qué métodos utilizarías para garantizar que las llamadas urgentes sean atendidas de manera eficiente, sin perder el orden de las llamadas regulares.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "java"
+        },
+        kernelOptions: {
+            name: "java",
+            path: "./Lessons/Exams/Second"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'java'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Second.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Second Exam</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="V2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">V2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-1-gestion-de-tareas-en-un-sistema">Problema 1: Gestión de Tareas en un Sistema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problema-2-registro-de-llamadas-en-un-centro-de-atencion">Problema 2: Registro de Llamadas en un Centro de Atención</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#consideraciones-adicionales">Consideraciones Adicionales:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Sebastian Aguilera Novoa
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  ETITC
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
