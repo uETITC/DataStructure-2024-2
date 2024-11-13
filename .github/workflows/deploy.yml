@@ -59,21 +59,22 @@ jobs:
         jupyter-book build .
 
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
-        publish_dir:  ./_build/html
-        publish_branch: gh-pages
+      id: deployment
+      uses:  actions/deploy-pages@v4.0.5
+      # with:
+      #   personal_token: ${{ secrets.PERSONAL_TOKEN }}
+      #   publish_dir:  ./_build/html
+      #   publish_branch: gh-pages
      # For local testing - just verify the build
-    - name: Local build verification
-      run: |
-        echo "🚀 Local build verification completed!"
-        echo "✓ Book built successfully in ./_build/html"
-        echo "📚 Contents of build directory:"
-        ls -la ./_build/html
-        echo ""
-        echo "ℹ️  Note: Running in local environment - skipping gh-pages deployment"
-        echo "   When this runs on GitHub, content will be deployed to gh-pages branch"
+    # - name: Local build verification
+    #   run: |
+    #     echo "🚀 Local build verification completed!"
+    #     echo "✓ Book built successfully in ./_build/html"
+    #     echo "📚 Contents of build directory:"
+    #     ls -la ./_build/html
+    #     echo ""
+    #     echo "ℹ️  Note: Running in local environment - skipping gh-pages deployment"
+    #     echo "   When this runs on GitHub, content will be deployed to gh-pages branch"
     # Upload the book's HTML as an artifact
     # - name: Upload artifact
     #   uses: actions/upload-pages-artifact@v2
