@@ -1,6 +1,6 @@
-# Data Structure
+# Estructura de Datos
 
-## Table of Content (ToC)
+## Tabla de Contenido (ToC)
 
 
 ```{tableofcontents}

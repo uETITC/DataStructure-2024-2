@@ -3,10 +3,10 @@
 
 format: jb-book
 root: README
-title: "Data Structure"
+title: "Estructura de Datos"
 
 parts:
-  - caption: "Introduction"
+  - caption: "Introducción"
     numbered: false
     chapters:
     - file: Lessons/1.IntroductionToJava.md
@@ -15,28 +15,31 @@ parts:
     - file: Lessons/2.OOP_Fundamentals.ipynb
       sections:
       - file: Lessons/2.OOP_Fundamentals_Solution.ipynb
+    - file: Lessons/9.BusesAndProcessors.md
     - file: Lessons/Exams/First/First.md
       sections:
       - file: Lessons/Exams/First/V1.ipynb
       - file: Lessons/Exams/First/V2.ipynb
       - file: Lessons/Exams/First/Supletorio.ipynb
-  - caption: "Linear Data Structures"
+  - caption: "Estructuras Lineales"
     chapters:
     - file: Lessons/3.Strings.ipynb
     - file: Lessons/3.Arrays.ipynb
-    - file: Lessons/4.MultidimensionalArrays.ipynb
-    - file: Lessons/5.ReferencesNodesAndLinkedLists.ipynb
-    - file: Lessons/6.GenericsIterfacesAndIterators.ipynb
+      sections:
+        - file: Lessons/3.Arrays1D.ipynb
+        - file: Lessons/4.MultidimensionalArrays.ipynb
+    - file: Lessons/5.Nodes.ipynb
+    - file: Lessons/5.1.LinkedLists.ipynb
+    - file: Lessons/6.Interface.ipynb
+    - file: Lessons/6.Generics.ipynb
+    - file: Lessons/6.Iterators.ipynb
     - file: Lessons/7.Stacks.ipynb
     - file: Lessons/8.Queues.ipynb
     - file: Lessons/Exams/Second/Second.md
       sections:
         - file: Lessons/Exams/Second/V1.ipynb
         - file: Lessons/Exams/Second/V2.ipynb
-  - caption: "Buses and Processors"
-    chapters:
-    - file: Lessons/9.BusesAndProcessors.md
-  - caption: "Non-Linear Data Structures"
+  - caption: "Estructuras No-Lineales"
     chapters:
     - file: Lessons/10.Trees.ipynb
     - file: Lessons/11.0.Graphs.ipynb
