@@ -86,7 +86,7 @@ sphinx:
   config:
     language                : en   # include explicitly for accessibility
     mathjax_path            : https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # faster by 60-80%
-    html_extra_path         :  ["Lessons/images"]
+    html_extra_path         :  ["Lessons/assets/images"]
     html_js_files           : https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     bibtex_default_style    : plain 
     # html_context:
