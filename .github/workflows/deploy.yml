@@ -20,8 +20,7 @@ jobs:
       pages: write
       id-token: write
     steps:
-    - uses: actions/checkout@v3
-
+    
     # Install dependencies
     - name: Set up Python 3.11
       uses: actions/setup-python@v4
@@ -58,9 +57,18 @@ jobs:
       run: |
         jupyter-book build .
 
-    - name: Deploy
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Upload entire repository
+        path: './_build/html'
+    - name: Deploy to GitHub Pages
       id: deployment
-      uses:  actions/deploy-pages@v4.0.5
+      uses: actions/deploy-pages@v4.0.5
       # with:
       #   personal_token: ${{ secrets.PERSONAL_TOKEN }}
       #   publish_dir:  ./_build/html
