@@ -23,8 +23,4 @@ Ten encuenta:
 - Claridad en el código y la salida.
 - Documentación y comentarios en el código.
 
-## Conclusión
-
-Este examen práctico está diseñado para evaluar tu comprensión y capacidad para aplicar los principios de la Programación Orientada a Objetos (POO) y los arreglos unidimensionales en problemas reales. Al resolver los problemas propuestos, demostrarás tu habilidad para diseñar sistemas complejos utilizando clases, herencia, encapsulamiento, y manejar datos de manera eficiente con estructuras como arreglos. Es importante que justifiques tus decisiones de diseño, lo que refleja tu comprensión teórica y práctica de los temas abordados.
-
 **¡Buena suerte!**
