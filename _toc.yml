@@ -9,40 +9,42 @@ parts:
   - caption: "Introducción"
     numbered: false
     chapters:
-    - file: Lessons/1.IntroductionToJava.md
+    - file: Lessons/01-IntroductionToJava.md
       sections:
-      - file: Lessons/1.IntroductionToJava_Solution.ipynb
-    - file: Lessons/2.OOP_Fundamentals.ipynb
+      - file: Lessons/01-IntroductionToJava_Solution.ipynb
+    - file: Lessons/02-OOP_Fundamentals.ipynb
       sections:
-      - file: Lessons/2.OOP_Fundamentals_Solution.ipynb
-    - file: Lessons/9.BusesAndProcessors.md
+      - file: Lessons/02-OOP_Fundamentals_Solution.ipynb
+    - file: Lessons/09-BusesAndProcessors.md
+  - caption: "Estructuras Lineales"
+    chapters:
+    - file: Lessons/03-Strings.ipynb
+    - file: Lessons/03-Arrays.ipynb
+      sections:
+        - file: Lessons/03-Arrays1D.ipynb
+        - file: Lessons/04-MultidimensionalArrays.ipynb
+    - file: Lessons/05-Nodes.ipynb
+    - file: Lessons/05-LinkedLists.ipynb
+    - file: Lessons/06-Interface.ipynb
+    - file: Lessons/06-Generics.ipynb
+    - file: Lessons/06-Iterators.ipynb
+    - file: Lessons/07-Stacks.ipynb
+    - file: Lessons/08-Queues.ipynb
+  - caption: "Estructuras No-Lineales"
+    chapters:
+    - file: Lessons/10-Trees.ipynb
+    - file: Lessons/11-Graphs.ipynb
+      sections:
+        - file: Lessons/11.1-UnweightedGraphs.ipynb
+        - file: Lessons/11.2-WeightedGraphs.ipynb
+  - caption: "Exámenes"
+    chapters:
     - file: Lessons/Exams/First/First.md
       sections:
       - file: Lessons/Exams/First/V1.ipynb
       - file: Lessons/Exams/First/V2.ipynb
       - file: Lessons/Exams/First/Supletorio.ipynb
-  - caption: "Estructuras Lineales"
-    chapters:
-    - file: Lessons/3.Strings.ipynb
-    - file: Lessons/3.Arrays.ipynb
-      sections:
-        - file: Lessons/3.Arrays1D.ipynb
-        - file: Lessons/4.MultidimensionalArrays.ipynb
-    - file: Lessons/5.Nodes.ipynb
-    - file: Lessons/5.1.LinkedLists.ipynb
-    - file: Lessons/6.Interface.ipynb
-    - file: Lessons/6.Generics.ipynb
-    - file: Lessons/6.Iterators.ipynb
-    - file: Lessons/7.Stacks.ipynb
-    - file: Lessons/8.Queues.ipynb
     - file: Lessons/Exams/Second/Second.md
       sections:
         - file: Lessons/Exams/Second/V1.ipynb
         - file: Lessons/Exams/Second/V2.ipynb
-  - caption: "Estructuras No-Lineales"
-    chapters:
-    - file: Lessons/10.Trees.ipynb
-    - file: Lessons/11.0.Graphs.ipynb
-      sections:
-        - file: Lessons/11.1.UnweightedGraphs.ipynb
-        - file: Lessons/11.2.WeightedGraphs.ipynb
