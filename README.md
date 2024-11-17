@@ -91,7 +91,7 @@ All assignments will be stored on [GitHub](https://github.com/) but will be uplo
 - [Java-Programming-8th-Edition](https://github.com/mattsblack/Java-Programming-8th-Edition)
 - [Java topic Github](https://github.com/topics/java)
 
-### Códigos
+### Codes
 
 - [Introduction to Java Programming and Data Structures, Comprehensive Version, 12th Edition](https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/source-code.php)
   
