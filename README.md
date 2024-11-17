@@ -1,5 +1,7 @@
 # Estructura de Datos
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/uETITC/DataStructure-2024-2/main?labpath=Lessons)
+
 ## Tabla de Contenido (ToC)
 
 
@@ -8,6 +10,7 @@
 
 ## Objective
 
+{cite}`ydaniel,kofmman,jamest,howtojava,Horstmann,Tanenbaum,concurrency`
 To present strategies for analysis, design, and programming of data structure allowing students to organize, manipulate, search and insert data efficiently in an application.
 
 ## Subject Learning Results (RAC)
@@ -58,12 +61,6 @@ All assignments will be stored on [GitHub](https://github.com/) but will be uplo
 
 ## References
 
-### Books
-
-- Y. Daniel Liang. *"Introduction to Java Programming and Data Structures, Comprehensive Version"*. Addison Wesley. Edición 12 (2019). Capítulo 1 y 9.
-- Koffman, Elliot B.; Wolfgang, Paul A. T."*Data structures : abstraction and design using Java"*. Wiley. Tercera edición (2016). Capítulo 2.5, página 101.
-- James T. Streib,Takako Soma. *"Guide to Data Structures: A Concise Introduction Using Java"*. Springer International Publishing. Primera edición (2017). Capítulo 5, página 120.
-
 ### Repositories
 
 - [Intro-to-Java-Programming](https://github.com/jsquared21/Intro-to-Java-Programming)
@@ -73,4 +70,15 @@ All assignments will be stored on [GitHub](https://github.com/) but will be uplo
 - [Java-Programming-8th-Edition](https://github.com/mattsblack/Java-Programming-8th-Edition)
 - [Java topic Github](https://github.com/topics/java)
 
+### Códigos
+
+- [Introduction to Java Programming and Data Structures, Comprehensive Version, 12th Edition](https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/content/source-code.php)
+  
+### Books
+
+```{bibliography}
+```
+
+:::{important}
 You can find all documents in the Google Drive folder [References](https://itceduco-my.sharepoint.com/:f:/g/personal/saguileran_itc_edu_co/Eledh23Sd41CnWAnmM3jALkBNHxwDXfiZ4CcmnRTa_ST3Q?e=Z1qPlS).
+:::
