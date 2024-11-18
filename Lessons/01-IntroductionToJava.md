@@ -441,7 +441,7 @@ name: colab3
 Clacificación de las variables en java. Imagen tomada de [Data Types in java](https://mindmajix.com/data-types-in-java).
 ```
 
-```{figure} https://static.wikia.nocookie.net/java/images/0/0c/Variables.jpeg/revision/latest/scale-to-width-down/1000?cb=20141023145013
+```{figure} https://static.wikia.nocookie.net/java/images/0/0c/Variables.jpeg
 ---
 width: 80%
 name: colab3
