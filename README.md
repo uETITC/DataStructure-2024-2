@@ -32,7 +32,7 @@ If you work from Google [Google Colab](https://colab.research.google.com/) **you
 
 ## Objective
 
-{cite}`ydaniel,kofmman,jamest,howtojava,Horstmann,Tanenbaum,concurrency`
+{cite}`ydaniel,koffman,jamest,howtojava,Horstmann,Tanenbaum,concurrency,Goodrich,Cormen`
 To present strategies for analysis, design, and programming of data structure allowing students to organize, manipulate, search and insert data efficiently in an application.
 
 ## Subject Learning Results (RAC)
@@ -91,6 +91,8 @@ All assignments will be stored on [GitHub](https://github.com/) but will be uplo
 - [Java-Programming](https://github.com/amir0320/Java-Programming)
 - [Java-Programming-8th-Edition](https://github.com/mattsblack/Java-Programming-8th-Edition)
 - [Java topic Github](https://github.com/topics/java)
+- [Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/ns/books/published/pythonds/index.html)
+- [Data-Structures-Algorithms-Java - indraantoor - Github](https://github.com/indraantoor/Data-Structures-Algorithms-Java/tree/master/Non%20Linear%20Data%20Structures/Trees)
 
 ### Codes
 

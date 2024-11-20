@@ -5,7 +5,7 @@
 title                       : Estructura de Datos  # The title of the book. Will be placed in the left navbar.
 author                      : Sebastian Aguilera Novoa  # The author of the book
 copyright                   : "2024"  # Copyright year to be placed in the footer
-logo                        : "logoED.png"  # A path to the book logo
+logo                        : "https://miro.medium.com/v2/resize:fit:1400/0*CHBG5vWFV-AY9Ylp.jpg"  # A path to the book logo
 email: saguileran@itc.edu.co
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -63,12 +63,12 @@ html:
   use_repository_button     : true  # Whether to add a link to your repository button
   use_issues_button         : true  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
-  extra_footer              : "ETITC"  # Will be displayed underneath the footer.
+  #extra_footer              : "ETITC"  # Will be displayed underneath the footer.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  # extra_footer: |
-  #   <p>
-  #   ... Add license info here...
-  #   </p>
+  extra_footer: |
+    <p>
+      <a href="https://www.etitc.edu.co/" target="_blank">Escuela Tecnológica Instituto Técnico Central (ETITC)</a> 
+    </p>
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   analytics:
     plausible_analytics_domain: ""
@@ -84,7 +84,7 @@ html:
 #######################################################################################
 # Advanced and power-user settings
 sphinx:
-  extra_extensions          : ["sphinx_design"] # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  extra_extensions          : ["sphinx_design"] # subfigure # A list of extra extensions to load by Sphinx (added to those already used by JB).
   #myst_enable_extensions    : ["colon_fence"]
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
