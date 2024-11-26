@@ -1,4 +1,4 @@
-# Second Exam
+# 2. Estructuras Lineales
 
 ## Instrucciones
 Resuelve los siguientes problemas utilizando las estructuras de datos correctas: pilas o colas. Justifica tu elección y describe el proceso general de cómo manejarías cada acción.

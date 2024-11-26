@@ -2,6 +2,8 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/uETITC/DataStructure-2024-2/main?labpath=Lessons)
 
+This course is taught in java programming language. It is part of the courses offered by [ETITC](https://etitc.edu.co/) for the systems engineering program. All courses are stored in the [uETITC](https://uetitc.github.io/) GitHub organization.
+
 ## Tabla de Contenido (ToC)
 
 
@@ -45,22 +47,25 @@ At the end of the course the student will be able to:
 
 ## Grades
 
-<center>
-<table>
-<tr></tr>
-<tr>
-<td>
 
-| **Period** |  **Date** |
-|:--------------:|:----------:|
-|  First   | 13/09/2024 |
-|  Second  | 25/10/2024 |
-|  Final  | 02/12/2024 |
+```{list-table} Exams dates and percentages per period.
+:header-rows: 1
+:width: 50%
+:name: examsDates
 
-</td>
-</tr>
-</table>
-</center>
+* - **Period**
+  - **Porcentage**
+  - **Exam Date**
+* - First
+  - 35%
+  - 13/09/2024
+* - Second
+  - 35%
+  - 25/10/2024
+* - Final
+  - 30%
+  - 02/12/2024
+```
 
 
 For all periods the grade is divided into: Co-evaluation (10 %), self-evaluation (10 %), and teacher evaluation (80 %) which is divided into exams (40 %) and assignments (40 %). The first and second periods are 35 % of the final grade, while for the last period it is 30 %. In the first and second periods the exam consists of two tests: one practical (60 %) and the other theoretical (40 %). 
@@ -104,5 +109,5 @@ All assignments will be stored on [GitHub](https://github.com/) but will be uplo
 ```
 
 :::{important}
-You can find all documents in the Google Drive folder [References](https://itceduco-my.sharepoint.com/:f:/g/personal/saguileran_itc_edu_co/Eledh23Sd41CnWAnmM3jALkBNHxwDXfiZ4CcmnRTa_ST3Q?e=Z1qPlS).
+You can find all documents in the Google Drive folder [References](https://itceduco-my.sharepoint.com/:f:/g/personal/saguileran_itc_edu_co/Eledh23Sd41CnWAnmM3jALkBNHxwDXfiZ4CcmnRTa_ST3Q?e=Z1qPlS), to get acces you must enter with the institutional email.
 :::

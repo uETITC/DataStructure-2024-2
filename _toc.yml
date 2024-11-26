@@ -6,8 +6,9 @@ root: README
 title: "Estructura de Datos"
 
 parts:
-  - caption: "Introducción"
+  - caption: "Introducción"  # The displayed Table of Contents will only have two levels
     numbered: false
+    maxdepth: 3
     chapters:
     - file: Lessons/01-IntroductionToJava.md
       sections:
@@ -16,7 +17,14 @@ parts:
       sections:
       - file: Lessons/02-OOP_Fundamentals_Solution.ipynb
     - file: Lessons/09-BusesAndProcessors.md
+  - caption: "Fundamentos"
+    chapters:
+    - file: Lessons/06-Interface.ipynb
+    - file: Lessons/06-Generics.ipynb
+    - file: Lessons/06-Iterators.ipynb
   - caption: "Estructuras Lineales"
+    numbered: false
+    maxdepth: 3
     chapters:
     - file: Lessons/03-Strings.ipynb
     - file: Lessons/03-Arrays.ipynb
@@ -25,9 +33,7 @@ parts:
         - file: Lessons/04-MultidimensionalArrays.ipynb
     - file: Lessons/05-Nodes.ipynb
     - file: Lessons/05-LinkedLists.ipynb
-    - file: Lessons/06-Interface.ipynb
-    - file: Lessons/06-Generics.ipynb
-    - file: Lessons/06-Iterators.ipynb
+    
     - file: Lessons/07-Stacks.ipynb
     - file: Lessons/08-Queues.ipynb
   - caption: "Estructuras No-Lineales"
@@ -35,9 +41,12 @@ parts:
     - file: Lessons/10-Trees.ipynb
     - file: Lessons/11-Graphs.ipynb
       sections:
-        - file: Lessons/11.1-UnweightedGraphs.ipynb
-        - file: Lessons/11.2-WeightedGraphs.ipynb
+        - file: Lessons/11-1-UnweightedGraphs.ipynb
+        - file: Lessons/11-2-WeightedGraphs.ipynb
+        - file: Lessons/11-3-SpanningTree.ipynb
   - caption: "Exámenes"
+    numbered: false
+    maxdepth: 3
     chapters:
     - file: Lessons/Exams/First/First.md
       sections:
@@ -48,3 +57,7 @@ parts:
       sections:
         - file: Lessons/Exams/Second/V1.ipynb
         - file: Lessons/Exams/Second/V2.ipynb
+    - file: Lessons/Exams/Third/Third.md
+      sections:
+        - file: Lessons/Exams/Third/V1.ipynb
+        - file: Lessons/Exams/Third/V2.ipynb
