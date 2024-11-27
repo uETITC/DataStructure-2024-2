@@ -6,27 +6,33 @@ root: README
 title: "Estructura de Datos"
 
 parts:
-  - caption: "Introducción"  # The displayed Table of Contents will only have two levels
+  - caption: "Configuración de Java"
     numbered: false
     maxdepth: 3
     chapters:
     - file: Lessons/01-IntroductionToJava.md
       sections:
-      - file: Lessons/01-IntroductionToJava_Solution.ipynb
+      - file: Lessons/01-IntroductionToJava_Solution.ipynb  
+  - caption: "Fundamentos"
+    numbered: false
+    maxdepth: 3
+    chapters:
     - file: Lessons/02-OOP_Fundamentals.ipynb
       sections:
       - file: Lessons/02-OOP_Fundamentals_Solution.ipynb
-    - file: Lessons/09-BusesAndProcessors.md
-  - caption: "Fundamentos"
-    chapters:
     - file: Lessons/06-Interface.ipynb
     - file: Lessons/06-Generics.ipynb
     - file: Lessons/06-Iterators.ipynb
+  - caption: "Estructuras Primitivas"
+    numbered: false
+    maxdepth: 3
+    chapters:
+    - file: Lessons/03-Characters.ipynb
+    - file: Lessons/03-Strings.ipynb
   - caption: "Estructuras Lineales"
     numbered: false
     maxdepth: 3
     chapters:
-    - file: Lessons/03-Strings.ipynb
     - file: Lessons/03-Arrays.ipynb
       sections:
         - file: Lessons/03-Arrays1D.ipynb
@@ -39,11 +45,15 @@ parts:
   - caption: "Estructuras No-Lineales"
     chapters:
     - file: Lessons/10-Trees.ipynb
-    - file: Lessons/11-Graphs.ipynb
+    - file: Lessons/11-0-Graphs.ipynb
       sections:
         - file: Lessons/11-1-UnweightedGraphs.ipynb
         - file: Lessons/11-2-WeightedGraphs.ipynb
         - file: Lessons/11-3-SpanningTree.ipynb
+    - file: Lessons/13-Json.ipynb
+    - file: Lessons/14-Sets.ipynb
+    - file: Lessons/14-Maps.ipynb
+    - file: Lessons/12-Hashing.ipynb
   - caption: "Exámenes"
     numbered: false
     maxdepth: 3

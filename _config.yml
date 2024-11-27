@@ -84,7 +84,7 @@ html:
 #######################################################################################
 # Advanced and power-user settings
 sphinx:
-  extra_extensions          : ["sphinx_design"] # subfigure # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  extra_extensions          : ["sphinx_design", "sphinx_proof"] # subfigure # A list of extra extensions to load by Sphinx (added to those already used by JB).
   #myst_enable_extensions    : ["colon_fence"]
   local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
   recursive_update          : false # A boolean indicating whether to overwrite the Sphinx config (true) or recursively update (false)
