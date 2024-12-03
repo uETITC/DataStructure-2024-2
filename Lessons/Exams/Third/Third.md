@@ -20,7 +20,7 @@ Primero comiencen por implementar el árbol/grafo con `Strings`, después actual
 ## Criterios de Evaluación
 
 - **Correcta implementación de estructuras de datos:**  
-   - Árbol N-Ario funcional con las operaciones solicitadas.  
+   - Árbol binrio funcional con las operaciones solicitadas.  
    - Grafo sin pesos funcional con las operaciones solicitadas.  
 2. **Organización del código:**  
    - Código modular y bien estructurado.  
