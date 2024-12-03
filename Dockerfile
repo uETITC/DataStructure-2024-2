@@ -7,7 +7,7 @@ RUN apt-get install -y python3-pip unzip
 COPY requirements.tx[t] .
 RUN ([ -f requirements.txt ] \
     && pip3 install --no-cache-dir -r requirements.txt) \
-        || pip3 install --no-cache-dir jupyter jupyterlab
+    || pip3 install --no-cache-dir jupyter jupyterlab
 
 USER root
 
@@ -21,9 +21,9 @@ RUN unzip ijava-kernel.zip -d ijava-kernel \
 
 # Set up the user environment
 
-ENV NB_USER jovyan
-ENV NB_UID 1000
-ENV HOME /home/$NB_USER
+ENV NB_USER=saguileran
+ENV NB_UID=1000
+ENV HOME=/home/$NB_USER
 
 RUN adduser --disabled-password \
     --gecos "Default user" \

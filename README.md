@@ -10,6 +10,13 @@ This course is taught in java programming language. It is part of the courses of
 ```{tableofcontents}
 ```
 
+## Docker
+
+```
+docker build -t sampleapp:v1 .
+docker run -p 8081:80 sampleapp:v1
+```
+
 (execuingColab)=
 ## Executing Notebooks in Colab
 
